@@ -22,13 +22,20 @@ header {
     padding: 30px 10%;
 }
 
-form{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+div.form{
+    display : block;
+    text-align: center;
 }
 
-input[type="submit"]{
+form{
+    display: inline-block;
+    margin-top: 10%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left
+}
+
+input{
     color: #edf0f1;
 }
 

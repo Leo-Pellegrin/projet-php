@@ -8,7 +8,7 @@
     </head>
     <body>
         <header>
-            <img class="logo" src="image/logo_site.png" alt="logo">
+            <a href="index.html"><img class="logo" src="images/logo_site.png" alt="logo"></a>
             <nav>
                 <ul class="nav_links">
                     <li><a href="#"> Exemple </a> </li>
@@ -19,19 +19,21 @@
             <a class="cta" href="login.php"><button> Se connecter </button> </a>
             <a class="cta" href="form.php"><button> S'inscrire </button> </a>
         </header>
-        <form action="test-pass.php" method="post">
-            <label>Identifiant</label>
-            <input name="identifiant" type="text"> <br>
-            <label>Mot de passe</label>
-            <input name="password" type="password"> <br>
-            <input name="action" value="OK" type="submit">
-            <?php
+        <div class="form">
+            <form action="test-pass.php" method="post">
+                <label>Identifiant</label>
+                <input name="identifiant" type="text"> <br>
+                <label>Mot de passe</label>
+                <input name="password" type="password"> <br>
+                <input name="action" value="OK" type="submit">
+                <?php
                 if ($_SESSION == null) {
                     echo $_SESSION['error'];
 
                 }
 
-            ?>
-        </form>
+                ?>
+            </form>
+        </div>
     </body>
 </html>

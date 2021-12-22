@@ -10,7 +10,7 @@
     </head>
     <body>
         <header>
-            <img class="logo" src="image/logo_site.png" alt="logo">
+            <a href="index.html"><img class="logo" src="images/logo_site.png" alt="logo"></a>
             <nav>
                 <ul class="nav_links">
                     <li><a href="#"> Exemple </a> </li>
@@ -21,36 +21,36 @@
             <a class="cta" href="login.php"><button> Se connecter </button> </a>
             <a class="cta" href="form.php"><button> S'inscrire </button> </a>
         </header>
-        <form action="../projetphp/data-processing.php" method="post">
-            <label>Identifiant</label>
-            <input name="id" value="id" type="text"> <br>
-            <label>Civilité</label> <br>
+        <div class="form">
+            <form action="../projetphp/data-processing.php" method="post">
+                <label for="id">Identifiant</label>
+                <input name="id" value="id" type="text"> <br>
+                <label for="sexe">Civilité</label> <br>
                 <label>Homme</label>
                 <input name="sexe" value="Homme" type="radio"> <br>
                 <label>Femme</label>
                 <input name="sexe" value="Femme" type="radio"> <br>
-            <label>E-mail</label>
-            <input name="email" value="email" type="text"> <br>
-            <label>Mot de passe</label>
-            <input name="mdp" value="mdp" type="password"> <br>
-            <label>Vérification de mot de passe</label>
-            <input name="mdp" value="mdp" type="password"> <br>
-            <label>Téléphone</label>
-            <input name="tel" value="tel" type="text"> <br>
-            <label>Pays</label>
-            <select name="pays">
-                <option value="France">France</option>
-                <option value="Allemagne">Allemagne</option>
-                <option value="Italie">Italie</option>
-                <option value="Royaume-Uni">Royaume-Uni</option>
-            </select> <br>
-            <label>Conditions générales</label>
-            <input name="condition" value="conditions" type="checkbox"> <br>
-            <label>Bouton de soumission</label>
-            <input name="action" value="Valider" type="submit"><br>
-            <input name="action" value="rec" type="submit"><br>
-        </form>
-
-
+                <label>E-mail</label>
+                <input name="email" value="email" type="text"> <br>
+                <label>Mot de passe</label>
+                <input name="mdp" value="mdp" type="password"> <br>
+                <label>Vérification de mot de passe</label>
+                <input name="mdp" value="mdp" type="password"> <br>
+                <label>Téléphone</label>
+                <input name="tel" value="tel" type="text"> <br>
+                <label>Pays</label>
+                <select name="pays">
+                    <option value="France">France</option>
+                    <option value="Allemagne">Allemagne</option>
+                    <option value="Italie">Italie</option>
+                    <option value="Royaume-Uni">Royaume-Uni</option>
+                </select> <br>
+                <label>Conditions générales</label>
+                <input name="condition" value="conditions" type="checkbox"> <br>
+                <label>Bouton de soumission</label>
+                <input name="action" value="Valider" type="submit"><br>
+                <input name="action" value="rec" type="submit"><br>
+            </form>
+        </div>
     </body>
 </html>
