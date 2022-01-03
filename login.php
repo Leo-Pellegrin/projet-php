@@ -11,7 +11,7 @@
             <a href="index.html"><img class="logo" src="images/" alt="logo"></a>
             <nav>
                 <ul class="nav_links">
-                    <li><a href="evenementform.html"> Proposer un événement </a> </li>
+                    <li><a href="evenementform.php"> Proposer un événement </a> </li>
                     <li><a href="inprogressevenement.php"> Événement en cours </a> </li>
                     <li><a href="#"> Exemple 3 </a> </li>
                 </ul>

@@ -1,3 +1,16 @@
+<?php
+    session_start();
+    if(isset($_SESSION['suid'])) {
+        if ($_SESSION['role'] == 'organisateur' or $_SESSION['role'] == 'admin'){}
+        else{
+            die('Vous n\'avez pas accès à cett page');
+        }
+    }
+    else{
+        die('Vous n\'avez pas accès à cett page');
+    }
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,5 +37,6 @@
         <form action="../projetphp/data-processing.php" method="post">
 
 
+    <?php echo $_SESSION['role'] ?>
 </body>
 </html>
