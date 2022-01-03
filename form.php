@@ -6,15 +6,15 @@
         <meta name="viewport" content="width=device-width">
         <meta name="description" content="PageAcceuil">
         <link href="css/style.css" rel="stylesheet" type="text/css" />
-        <title>Projet Php</title>
+        <title>E-Event.IO !</title>
     </head>
     <body>
         <header>
-            <a href="index.html"><img class="logo" src="images/logo_site.png" alt="logo"></a>
+            <a href="index.html"><img class="logo" src="images/" alt="logo"></a>
             <nav>
                 <ul class="nav_links">
-                    <li><a href="#"> Exemple </a> </li>
-                    <li><a href="#"> Exemple 2 </a> </li>
+                    <li><a href="evenementform.html"> Proposer un événement </a> </li>
+                    <li><a href="inprogressevenement.php"> Événement en cours </a> </li>
                     <li><a href="#"> Exemple 3 </a> </li>
                 </ul>
             </nav>
