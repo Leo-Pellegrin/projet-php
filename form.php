@@ -48,7 +48,6 @@
                 <input name="condition" value="conditions" type="checkbox"> <br>
                 <label>Bouton de soumission</label>
                 <input name="action" value="Valider" type="submit"><br>
-                <input name="action" value="rec" type="submit"><br>
             </form>
         </div>
     </body>

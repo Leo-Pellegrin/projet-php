@@ -35,27 +35,10 @@
                 exit();
             }
             else{
-                echo'Bonjour ' . $id . </br>;
-                echo'Votre inscription a bien été enregistrée, merci.';
+                header("Location: index.html");
             }
 
         }
-        /*
-            elseif ($action == 'rec') {
-                  $file = 'data.txt';
-            $handle = fopen('data.txt', 'a+');
-
-            if (!($file = fopen('data.txt', 'a+'))) {
-                echo 'Erreur d\'ouverture';
-                exit();
-            }
-            $data = fgets($handle, 255);
-            $contentdata = $data . 'id:' .$id . ', email :' . $email . PHP_EOL;
-            fputs($handle, $contentdata);
-
-            fclose($file);
-        }
-        */
         else{
             echo '<br/><strong>Bouton non géré !</strong><br/>';
         }
