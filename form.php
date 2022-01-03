@@ -1,4 +1,3 @@
-<?php require 'data-processing.php' ?>
 <!DOCTYPE html  >
 <html lang  ="fr"  >
     <head>
@@ -22,7 +21,7 @@
             <a class="cta" href="form.php"><button> S'inscrire </button> </a>
         </header>
         <div class="form">
-            <form action="../projetphp/data-processing.php" method="post">
+            <form action="data-processing.php" method="post">
                 <label for="id">Identifiant</label>
                 <input name="id" value="id" type="text"> <br>
                 <label for="sexe">Civilité</label> <br>

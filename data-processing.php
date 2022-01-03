@@ -35,11 +35,10 @@
                 exit();
             }
             else{
-                echo'Bonjour' . $id .'\n';
+                echo'Bonjour ' . $id . </br>;
                 echo'Votre inscription a bien été enregistrée, merci.';
             }
 
-            header("Location : index.html");
         }
         /*
             elseif ($action == 'rec') {
