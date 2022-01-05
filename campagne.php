@@ -24,7 +24,7 @@ session_start();
             <a href="index.html"><img class="logo" src="images/" alt="logo"></a>
                 <nav>
                     <ul class="nav_links">
-                        <li><a href="evenementform.php"> Proposer un événement </a> </li>
+                        <li><a href="evenement.php"> Proposer un événement </a> </li>
                         <li><a href="inprogressevenement.php"> Événement en cours </a> </li>
                         <li><a href="campagne.php"> Créer une campagne </a> </li>
                     </ul>
