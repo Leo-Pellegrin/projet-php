@@ -84,13 +84,13 @@ class Evenement
     }
 
     public function ajouterUnContenuSupp($contenu, $nbPtRequis){
-        $this->contenuSupp[sizeof($this->contenuSupp+1)] = array($contenu, $nbPtRequis);
+        $this->contenuSupp[] = array($contenu, $nbPtRequis);
     }
 
     public function validerContenuSupp(){
         for ($i = 0; $i > sizeof($this->contenuSupp); $i++){
             if($this->contenuSupp[$i][1] <= $this->ptAttribues){
-                $this->contenuSuppRetenus[sizeof($this->contenuSuppRetenus+1)] = $this->contenuSupp[$i][0];
+                $this->contenuSuppRetenus[] = $this->contenuSupp[$i][0];
                 $message = 'Un objectif de points à été atteint, votre contenu supplémentaire : ' . $this->contenuSupp[$i][0] .
                     ' va être ajouté à l\'évenement';
                 mail($this->organisateur, 'Contenu supplémentaire ajouté', $message);

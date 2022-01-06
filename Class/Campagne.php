@@ -9,13 +9,16 @@ class Campagne
     private $m_ideesEvent = [];
 
     public function __construct($nom, $datedeb, $datefin, $nbPtInitial){
-        if ($datedeb > $datefin) {
+        $this->datedeb = new DateTime($datedeb);
+        $this->datefin = new DateTime($datefin);
+        $testDate = $this->datedeb->diff($this->datefin);
+        if ($testDate->format('%R') === '-') {
             echo 'L\'évenement ne peut être terminé avant d\'avoir commencé';
+            unset($this->datedeb);
+            unset($this->datefin);
         }
         else {
             $this->nom = $nom;
-            $this->datedeb = new DateTime($datedeb);
-            $this->datefin = new DateTime($datefin);
             $this->nbPtInitial = $nbPtInitial;
         }
     }
@@ -32,7 +35,7 @@ class Campagne
 
     public function getDatedeb()
     {
-        return $this->datedeb->format('d/m/Y H:i:s');
+        return $this->datedeb;
     }
 
     public function setDatedeb($datedeb)
@@ -42,7 +45,7 @@ class Campagne
 
     public function getDatefin()
     {
-        return $this->datefin->format('d/m/Y H:i:s');
+        return $this->datefin;
     }
 
     public function setDatefin($datefin)
@@ -72,13 +75,19 @@ class Campagne
 
     public function getTempsRestant(){
         $currentTime = new DateTime(date('m/d/Y H:i:s'));
-        $tpsRestant = $currentTime->diff($this->datefin);
+        if($this->datefin > $currentTime) {
+            $currentTime = new DateTime(date('m/d/Y H:i:s'));
+            $tpsRestant = $currentTime->diff($this->datefin);
+        }
+        else{
+            $tpsRestant = $currentTime->diff($currentTime);
+        }
         return $tpsRestant;
     }
 
     public function display(){
         echo '<h3>' . $this->nom . '</h3>' .
-            '<p>Cette campagne se termine dans ' . $this->getTempsRestant()->format('%d jours, %H heures, %i minutes et %s secondes') .
+            '<p>Cette campagne se termine dans ' . $this->getTempsRestant()->format('%d jours, %h heures, %i minutes et %s secondes') .
             '<br/>Nombre de points attribué aux donnateurs : ' . $this->nbPtInitial .
             '<br/>Les événements présents dans la campagne sont :';
             for($i = 0; $i < count($this->m_ideesEvent); $i++){
