@@ -97,4 +97,10 @@ class Evenement
             }
         }
     }
+    public function display(){
+        echo '<h2>' . $this->nom . '</h2>' .
+            '<p>Cet événement est organisé par ' . $this->organisateur .
+            '<br/> Contenu de l\'évenement : <br/>' . $this->contenu .
+            '<br/>Nombre de points attribué par les donnateurs : ' . $this->ptAttribues;
+    }
 }

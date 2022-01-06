@@ -77,7 +77,11 @@ class Campagne
     public function display(){
         echo '<h3>' . $this->nom . '</h3>' .
             '<p>Cette campagne se termine dans ' . $this->getTempsRestant() .
-            '<br/>Nombre de points attribué aux donnateurs : ' . $this->nbPtInitial;
+            '<br/>Nombre de points attribué aux donnateurs : ' . $this->nbPtInitial .
+            '<br/>Les événements présents dans la campagne sont :';
+            for($i = 0; $i < count($this->m_ideesEvent); $i++){
+                echo $this->m_ideesEvent[$i].$this->display() . '</br>';
+            }
     }
 
     public function ajouterUneIdee($evenement){

@@ -1,4 +1,5 @@
 <?php
+include 'Class/Campagne.php';
 
     $campok = $_POST['campok'];
     $nom = $_POST['nom'];
@@ -9,6 +10,7 @@
 
     if($campok == 'Valider'){
         $GLOBALS['campagne'] = new Campagne($nom, $datedeb, $datefin, $nbPtInitial);
+        header('Location: inprogressevenement.php');
     }
 
 
