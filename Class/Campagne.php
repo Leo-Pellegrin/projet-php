@@ -14,8 +14,8 @@ class Campagne
         }
         else {
             $this->nom = $nom;
-            $this->datedeb = $datedeb;
-            $this->datefin = $datefin;
+            $this->datedeb = new DateTime($datedeb);
+            $this->datefin = new DateTime($datefin);
             $this->nbPtInitial = $nbPtInitial;
         }
     }
@@ -32,7 +32,7 @@ class Campagne
 
     public function getDatedeb()
     {
-        return $this->datedeb;
+        return $this->datedeb->format('d/m/Y H:i:s');
     }
 
     public function setDatedeb($datedeb)
@@ -42,7 +42,7 @@ class Campagne
 
     public function getDatefin()
     {
-        return $this->datefin;
+        return $this->datefin->format('d/m/Y H:i:s');
     }
 
     public function setDatefin($datefin)
@@ -71,12 +71,14 @@ class Campagne
     }
 
     public function getTempsRestant(){
-        return $this->datefin - $this->datedeb;
+        $currentTime = new DateTime(date('m/d/Y H:i:s'));
+        $tpsRestant = $currentTime->diff($this->datefin);
+        return $tpsRestant;
     }
 
     public function display(){
         echo '<h3>' . $this->nom . '</h3>' .
-            '<p>Cette campagne se termine dans ' . $this->getTempsRestant() .
+            '<p>Cette campagne se termine dans ' . $this->getTempsRestant()->format('%d jours, %H heures, %i minutes et %s secondes') .
             '<br/>Nombre de points attribué aux donnateurs : ' . $this->nbPtInitial .
             '<br/>Les événements présents dans la campagne sont :';
             for($i = 0; $i < count($this->m_ideesEvent); $i++){
