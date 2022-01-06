@@ -21,7 +21,7 @@
             <a class="cta" href="login.php"><button> Se connecter </button> </a>
             <a class="cta" href="form.php"><button> S'inscrire </button> </a>
         </header>
-        <?php
+        <?php /*
             $campagne = $GLOBALS['campagne'];
             $today = strtotime(date("Y/m/d"));
             $date = strtotime($campagne->getDatefin());
@@ -30,6 +30,6 @@
                 echo 'Il n\'y a pas de campagne actuellement';
             else
                 $campagne->display();
-        ?>
+        */?>
     </body>
 </html>

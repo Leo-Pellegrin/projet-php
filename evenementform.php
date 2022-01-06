@@ -33,6 +33,12 @@
             <a class="cta" href="login.php"><button> Se connecter </button> </a>
             <a class="cta" href="form.php"><button> S'inscrire </button> </a>
         </header>
+        <?php /*
+            $campagne = $GLOBALS['campagne'];
+
+            if (!($campagne->getTempsRestant()) or $campagne->getTempsRestant() == 0)
+                echo 'Il n\'y a pas de campagne actuellement';
+        */ ?>
         <div class="form">
             <form action="newevenement.php" method="post">
                 <label>Nom</label>
