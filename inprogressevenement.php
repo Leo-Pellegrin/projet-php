@@ -1,4 +1,4 @@
-<?php include 'Class' ?>
+<?php   include 'Class/Campagne.php' ?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -23,7 +23,10 @@
         </header>
         <?php
             $campagne = $GLOBALS['campagne'];
-            if ($campagne->getDatefin() > date() or $campagne->getDatefin() == null)
+            $today = strtotime(date("Y/m/d"));
+            $date = strtotime($campagne->getDatefin());
+            echo $date;
+            if ($date < $today or is_null($campagne->getDatedeb()))
                 echo 'Il n\'y a pas de campagne actuellement';
             else
                 $campagne->display();
