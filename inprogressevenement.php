@@ -21,7 +21,7 @@
             <a class="cta" href="login.php"><button> Se connecter </button> </a>
             <a class="cta" href="form.php"><button> S'inscrire </button> </a>
         </header>
-        <?php 
+        <?php
             $campagne = $GLOBALS['campagne'];
             $currentTime = new DateTime(date('m/d/Y H:i:s'));
             if($campagne->getDatefin() < $currentTime){

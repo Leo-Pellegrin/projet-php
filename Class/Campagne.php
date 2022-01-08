@@ -86,17 +86,22 @@ class Campagne
     }
 
     public function display(){
-        echo '<h3>' . $this->nom . '</h3>' .
-            '<p>Cette campagne se termine dans ' . $this->getTempsRestant()->format('%d jours, %h heures, %i minutes et %s secondes') .
-            '<br/>Nombre de points attribué aux donnateurs : ' . $this->nbPtInitial .
-            '<br/>Les événements présents dans la campagne sont :';
-            for($i = 0; $i < count($this->m_ideesEvent); $i++){
-                echo $this->m_ideesEvent[$i].$this->display() . '</br>';
+        $currentTime = new DateTime(date('m/d/Y H:i:s'));
+
+        echo '<h1>' . $this->nom . '</h1>';
+        if($this->datefin < $currentTime) echo '<p>Cette campagne est terminée';
+        else echo '<p>Cette campagne se termine dans ' . $this->getTempsRestant()->format('%d jours, %h heures, %i minutes et %s secondes');
+
+        echo '<br/>Nombre de points attribué aux donnateurs : ' . $this->nbPtInitial .
+             '<br/>Les événements présents dans la campagne sont :';
+
+        for($i = 0; $i < sizeof($this->m_ideesEvent); $i++){
+            echo $this->m_ideesEvent[$i]->display() . '</br>';
             }
     }
 
     public function ajouterUneIdee($evenement){
-        $this->m_ideesEvent[sizeof($this->m_ideesEvent)] = $evenement;
+        $this->m_ideesEvent[] = $evenement;
     }
 
     public function supprimerUneIdee($evenement){

@@ -6,8 +6,7 @@ class Evenement
     private $organisateur;
     private $ptAttribues = 0;
     private $contenu;
-    private $contenuSupp = array();
-    private $contenuSuppRetenus = [];
+    private $contenuSupp = [];
 
     public function __construct($nom, $organisateur, $contenu){
         $this->nom = $nom;
@@ -65,16 +64,6 @@ class Evenement
         $this->contenuSupp = $contenuSupp;
     }
 
-    public function getContenuSuppRetenus()
-    {
-        return $this->contenuSuppRetenus;
-    }
-
-    public function setContenuSuppRetenus($contenuSuppRetenus)
-    {
-        $this->contenuSuppRetenus = $contenuSuppRetenus;
-    }
-
     public function attribuerPoints($nbPoints){
         $this->ptAttribues = $this->ptAttribues + $nbPoints;
     }
@@ -84,23 +73,40 @@ class Evenement
     }
 
     public function ajouterUnContenuSupp($contenu, $nbPtRequis){
-        $this->contenuSupp[] = array($contenu, $nbPtRequis);
+        for ($i = 0; $i > sizeof($this->contenuSupp); $i++){
+            if ($this->contenuSupp[$i][0] == $contenu){
+                echo 'Ce contenu supplémentaire existe déjà !';
+                return;
+            }
+        }
+        $this->contenuSupp[] = ['contenu'=>$contenu, 'nbPtRequis'=>$nbPtRequis, 'validation'=>false];
     }
 
     public function validerContenuSupp(){
         for ($i = 0; $i > sizeof($this->contenuSupp); $i++){
             if($this->contenuSupp[$i][1] <= $this->ptAttribues){
-                $this->contenuSuppRetenus[] = $this->contenuSupp[$i][0];
+                $this->contenuSupp[$i]['validation'] = true;
                 $message = 'Un objectif de points à été atteint, votre contenu supplémentaire : ' . $this->contenuSupp[$i][0] .
                     ' va être ajouté à l\'évenement';
                 mail($this->organisateur, 'Contenu supplémentaire ajouté', $message);
             }
         }
     }
+
     public function display(){
-        echo '<h2>' . $this->nom . '</h2>' .
+        echo '<h3>' . $this->nom . '</h3>' .
             '<p>Cet événement est organisé par ' . $this->organisateur .
-            '<br/> Contenu de l\'évenement : <br/>' . $this->contenu .
-            '<br/>Nombre de points attribué par les donnateurs : ' . $this->ptAttribues;
+            '<br/>Contenu de l\'évenement : <br/>' . $this->contenu .
+            '<br/>Contenu supplémentaires proposés: <br/>';
+        for ($i = 0; $i > sizeof($this->contenuSupp); $i++){
+            if ($this->contenuSupp[$i]['validation'] == false)
+                echo $this->contenuSupp[$i]['contenu'] . '<br/>Nombre de points requis : ' . $this->contenuSupp[$i]['nbPtRequis'];
+        }
+        echo '<br/>Contenu supplémentaires retenus : <br/>';
+        for ($i = 0; $i > sizeof($this->contenuSupp); $i++){
+            if ($this->contenuSupp[$i]['validation'] == true)
+                echo $this->contenuSupp[$i]['contenu'];
+        }
+        echo '<br/>Nombre de points attribué par les donnateurs : ' . $this->ptAttribues . '</p>';
     }
 }
