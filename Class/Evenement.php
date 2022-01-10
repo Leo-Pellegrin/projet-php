@@ -89,7 +89,7 @@ class Evenement
         echo '<br/>Contenu supplémentaires retenus : <br/>';
         for ($i = 0; $i < sizeof($this->contenuSupp); $i++){
             if ($this->contenuSupp[$i]->isValidated())
-                echo $this->contenuSupp[$i]->getContenu();
+                echo $this->contenuSupp[$i]->getContenu() . '<br/>';
         }
         echo '<br/>Nombre de points attribué par les donnateurs : ' . $this->ptAttribues . '</p>';
     }
