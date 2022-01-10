@@ -72,25 +72,8 @@ class Evenement
         $this->ptAttribues = $this->ptAttribues - $nbPoints;
     }
 
-    public function ajouterUnContenuSupp($contenu, $nbPtRequis){
-        for ($i = 0; $i > sizeof($this->contenuSupp); $i++){
-            if ($this->contenuSupp[$i][0] == $contenu){
-                echo 'Ce contenu supplémentaire existe déjà !';
-                return;
-            }
-        }
-        $this->contenuSupp[] = ['contenu'=>$contenu, 'nbPtRequis'=>$nbPtRequis, 'validation'=>false];
-    }
-
-    public function validerContenuSupp(){
-        for ($i = 0; $i > sizeof($this->contenuSupp); $i++){
-            if($this->contenuSupp[$i][1] <= $this->ptAttribues){
-                $this->contenuSupp[$i]['validation'] = true;
-                $message = 'Un objectif de points à été atteint, votre contenu supplémentaire : ' . $this->contenuSupp[$i][0] .
-                    ' va être ajouté à l\'évenement';
-                mail($this->organisateur, 'Contenu supplémentaire ajouté', $message);
-            }
-        }
+    public function ajouterContenuSupp($contenuSupp){
+        $this->contenuSupp[] = $contenuSupp;
     }
 
     public function display(){
@@ -98,14 +81,15 @@ class Evenement
             '<p>Cet événement est organisé par ' . $this->organisateur .
             '<br/>Contenu de l\'évenement : <br/>' . $this->contenu .
             '<br/>Contenu supplémentaires proposés: <br/>';
-        for ($i = 0; $i > sizeof($this->contenuSupp); $i++){
-            if ($this->contenuSupp[$i]['validation'] == false)
-                echo $this->contenuSupp[$i]['contenu'] . '<br/>Nombre de points requis : ' . $this->contenuSupp[$i]['nbPtRequis'];
+        for ($i = 0; $i < sizeof($this->contenuSupp); $i++){
+            if (!$this->contenuSupp[$i]->isValidated())
+                echo $this->contenuSupp[$i]->getContenu() . '<br/>Nombre de points requis : ' .
+                $this->contenuSupp[$i]->getNbPtRequis() . '<br/>';
         }
         echo '<br/>Contenu supplémentaires retenus : <br/>';
-        for ($i = 0; $i > sizeof($this->contenuSupp); $i++){
-            if ($this->contenuSupp[$i]['validation'] == true)
-                echo $this->contenuSupp[$i]['contenu'];
+        for ($i = 0; $i < sizeof($this->contenuSupp); $i++){
+            if ($this->contenuSupp[$i]->isValidated())
+                echo $this->contenuSupp[$i]->getContenu();
         }
         echo '<br/>Nombre de points attribué par les donnateurs : ' . $this->ptAttribues . '</p>';
     }
