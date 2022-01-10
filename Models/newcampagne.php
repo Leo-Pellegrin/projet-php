@@ -11,7 +11,7 @@ include 'Class/Campagne.php';
     if($campok == 'Valider'){
         $GLOBALS['campagne'] = new Campagne($nom, $datedeb, $datefin, $nbPtInitial);
         echo $GLOBALS['campagne']->display();
-        //header('Location: inprogressevenement.php');
+        //header('Location: inprogressevenement.phtml');
     }
 
 

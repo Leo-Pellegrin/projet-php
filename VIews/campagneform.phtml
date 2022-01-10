@@ -21,16 +21,16 @@ session_start();
     </head>
     <body>
         <header>
-            <a href="index.html"><img class="logo" src="../images" alt="logo"></a>
+            <a href="../index.php"><img class="logo" src="../images" alt="logo"></a>
                 <nav>
                     <ul class="nav_links">
-                        <li><a href="evenementform.php"> Proposer un événement </a> </li>
-                        <li><a href="inprogressevenement.php"> Événement en cours </a> </li>
-                        <li><a href="campagneform.php"> Créer une campagne </a> </li>
+                        <li><a href="evenementform.phtml"> Proposer un événement </a> </li>
+                        <li><a href="inprogressevenement.phtml"> Événement en cours </a> </li>
+                        <li><a href="campagneform.phtml"> Créer une campagne </a> </li>
                     </ul>
                 </nav>
-            <a class="cta" href="login.php"><button> Se connecter </button> </a>
-            <a class="cta" href="form.php"><button> S'inscrire </button> </a>
+            <a class="cta" href="login.phtml"><button> Se connecter </button> </a>
+            <a class="cta" href="form.phtml"><button> S'inscrire </button> </a>
         </header>
         <div class="form">
             <form method="post" action="../Models/newcampagne.php">

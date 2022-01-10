@@ -37,5 +37,5 @@ else {
         $_SESSION['role'] = $row['role'];
 
     }
-    header("Location: index.html");
+    header("Location: index.php");
 }
