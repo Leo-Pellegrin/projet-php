@@ -10,7 +10,6 @@ include 'Class/Campagne.php';
 
     if($campok == 'Valider'){
         $GLOBALS['campagne'] = new Campagne($nom, $datedeb, $datefin, $nbPtInitial);
-        echo $datedeb . ' ' . $datefin;
         echo $GLOBALS['campagne']->display();
         //header('Location: inprogressevenement.php');
     }

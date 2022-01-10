@@ -1,16 +1,16 @@
-<?php   include 'Class/Campagne.php' ?>
+<?php include 'Class/Campagne.php' ?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width">
         <meta name="description" content="PageAcceuil">
-        <link href="css/style.css" rel="stylesheet" type="text/css" />
+        <link href="../css/style.css" rel="stylesheet" type="text/css" />
         <title>E-Event.IO !</title>
     </head>
     <body>
         <header>
-            <a href="index.html"><img class="logo" src="images/" alt="logo"></a>
+            <a href="index.html"><img class="logo" src="../images" alt="logo"></a>
             <nav>
                 <ul class="nav_links">
                     <li><a href="evenementform.php"> Proposer un événement </a> </li>

@@ -6,8 +6,6 @@ include 'Class';
     $IdOrga = $_POST['IdOrga'];
     $contenu = $_POST['contenu'];
 
-    $query = 'SELECT * FROM user WHERE identifiant=\'' .$IdOrga . '\'';
-
     $campagne = $GLOBALS['campagne'];
 
     if($eventok == 'Valider' ){

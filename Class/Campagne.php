@@ -75,8 +75,8 @@ class Campagne
 
     public function getTempsRestant(){
         $currentTime = new DateTime(date('m/d/Y H:i:s'));
+        var_dump($currentTime);
         if($this->datefin > $currentTime) {
-            $currentTime = new DateTime(date('m/d/Y H:i:s'));
             $tpsRestant = $currentTime->diff($this->datefin);
         }
         else{

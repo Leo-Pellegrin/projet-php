@@ -16,12 +16,12 @@ session_start();
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width">
         <meta name="description" content="PageAcceuil">
-        <link href="css/style.css" rel="stylesheet" type="text/css" />
+        <link href="../css/style.css" rel="stylesheet" type="text/css" />
         <title>E-Event.IO !</title>
     </head>
     <body>
         <header>
-            <a href="index.html"><img class="logo" src="images/" alt="logo"></a>
+            <a href="index.html"><img class="logo" src="../images" alt="logo"></a>
                 <nav>
                     <ul class="nav_links">
                         <li><a href="evenementform.php"> Proposer un événement </a> </li>
@@ -33,7 +33,7 @@ session_start();
             <a class="cta" href="form.php"><button> S'inscrire </button> </a>
         </header>
         <div class="form">
-            <form method="post" action="newcampagne.php">
+            <form method="post" action="../Models/newcampagne.php">
                 <label>Nom</label>
                 <input name="nom" type="text"><br>
                 <label>Date de Début</label>

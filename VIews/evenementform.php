@@ -17,12 +17,12 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width">
         <meta name="description" content="PageAcceuil">
-        <link href="css/style.css" rel="stylesheet" type="text/css" />
+        <link href="../css/style.css" rel="stylesheet" type="text/css" />
         <title>E-Event.IO !</title>
     </head>
     <body>
         <header>
-            <a href="index.html"><img class="logo" src="images/" alt="logo"></a>
+            <a href="index.html"><img class="logo" src="../images" alt="logo"></a>
             <nav>
                 <ul class="nav_links">
                     <li><a href="evenementform.php"> Proposer un événement </a> </li>
@@ -33,14 +33,15 @@
             <a class="cta" href="login.php"><button> Se connecter </button> </a>
             <a class="cta" href="form.php"><button> S'inscrire </button> </a>
         </header>
-        <?php /*
+        <?php
             $campagne = $GLOBALS['campagne'];
-
-            if (!($campagne->getTempsRestant()) or $campagne->getTempsRestant() == 0)
-                echo 'Il n\'y a pas de campagne actuellement';
-        */ ?>
+            var_dump($campagne);
+            echo $campagne->getTempsRestant();
+            /*if (!($campagne->getTempsRestant()) or $campagne->getTempsRestant() == 0)
+                echo 'Il n\'y a pas de campagne actuellement';*/
+        ?>
         <div class="form">
-            <form action="newevenement.php" method="post">
+            <form action="../Models/newevenement.php" method="post">
                 <label>Nom</label>
                 <input name="NomEvent" type="text"><br>
                 <label>Nom de l'organisateur</label>
