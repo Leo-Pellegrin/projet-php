@@ -2,6 +2,7 @@
 
 class Campagne
 {
+    private $id;
     private $nom;
     private $datedeb;
     private $datefin;
@@ -21,6 +22,14 @@ class Campagne
             $this->nom = $nom;
             $this->nbPtInitial = $nbPtInitial;
         }
+    }
+
+    public function getId(){
+        return $this->id;
+    }
+
+    public function setId($id){
+        $this->id = $id;
     }
 
     public function getNom()

@@ -18,7 +18,21 @@
     elseif(isset($_GET['jury'])){
         $controller->juryController(); // Page qui affiche les événements retenu pour le jury
     }
-    //Demander si faut faire des controlleurs
+    elseif (isset($_GET['campagneform'])){
+        $controller->campagneformController();
+    }
+    elseif (isset($_GET['evenementform'])){
+        $controller->evenementformController();
+    }
+    elseif (isset($_GET['form'])){
+        $controller->formController();
+    }
+    elseif (isset($_GET['login'])){
+        $controller->loginController();
+    }
+    elseif (isset($_GET['profil'])){
+        $controller->profilController();
+    }
     else{
         $controller->errorController();
     }
