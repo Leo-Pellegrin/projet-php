@@ -16,6 +16,7 @@ class Campagne
             echo 'L\'évenement ne peut être terminé avant d\'avoir commencé';
             unset($this->datedeb);
             unset($this->datefin);
+            exit();
         }
         else {
             $this->nom = $nom;
