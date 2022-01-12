@@ -20,7 +20,7 @@ class Controller{
         $EvenementRepo = new EvenementRepo();
         $evenements = $EvenementRepo->findAllEvenement($campagne);
 
-        include('Views/evenements.phtml');
+        include('Views/evenement.phtml');
         $html = ob_end_flush();
 
         return $html;
@@ -41,8 +41,14 @@ class Controller{
     public function demandeController(){
         ob_start();
 
-        $DemandeRepo = new EntityRepo();
-        $demandes = $DemandeRepo->findAll('demande');
+        $EntityRepo = new EntityRepo();
+        $demandes = $EntityRepo->findAll('demande');
+        if($_POST['action'] == 'Accepter'){
+            header('Location: demandevalidation.phtml');
+        }
+        elseif($_POST['action'] == ''){
+            $EntityRepo->delete('demande', $_GET['demande']);
+        }
 
         include('Views/demande.phtml');
         $html = ob_end_flush();
@@ -94,6 +100,25 @@ class Controller{
         return $html;
     }
 
+    public function demandevalidationController($email){
+        ob_start();
+
+        include('Views/demandevalidation.phtml');
+
+        if($_SERVER['REQUEST_METHOD'] == 'POST'){
+            $DemandeRepo = new DemandeRepo();
+            $datas = $DemandeRepo->addUser();
+
+            $EntityRepo = new EntityRepo();
+            $EntityRepo->delete('demande', $_GET['demande']);
+
+            mail($email,
+            'Demande de compte sur Event-Io',
+            'Bonjour, votre identifiant est ' . $datas[0] . ' et votre mot de passe est ' . $datas[1] .'. <br> En vous attendant au plus vite sur Event-IO ! <br> Cordialement, L\'équipe d\'Event-IO!', '',
+            'From: projet.phpiutaix@gmail.com');
+        }
+    }
+
     public function jurycampagneController(){
         ob_start();
 
@@ -124,7 +149,8 @@ class Controller{
         include('Views/login.phtml');
 
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
-
+            $loginrepo = new LoginRepo();
+            $_SESSION['role'] = $loginrepo->login();
         }
 
         $html = ob_end_flush();

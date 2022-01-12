@@ -10,11 +10,6 @@ class User
     private $pays;
     private $date;
     private $role;
-    private $cg;
-
-    public function __construct(){
-
-    }
 
     public function getId()
     {
@@ -96,13 +91,4 @@ class User
         $this->role = $role;
     }
 
-    public function getCg()
-    {
-        return $this->cg;
-    }
-
-    public function setCg($cg)
-    {
-        $this->cg = $cg;
-    }
 }

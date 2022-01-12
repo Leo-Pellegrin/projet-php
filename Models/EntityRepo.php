@@ -9,16 +9,22 @@ class EntityRepo
     }
 
     public function findAll($table){
+
         $req = $this->bd->query('SELECT * FROM' . $table .'ORDER BY ID');
-        $resultat = $req->fetchAll(PDO::FETCH_CLASS);
+        $resultat = $req->fetch_all(MYSQLI_ASSOC);
 
         return $resultat;
     }
 
     public function find($table, $id){
         $req = $this->bd->query('SELECT * FROM' . $table . 'WHERE id=' . $id );
-        $resulat = $req->fetchall(PDO::FETCH_CLASS);
+        $resulat = $req->fetch_all(MYSQLI_ASSOC);
 
         return $resulat;
+    }
+
+    public function delete($table, $id){
+        $req = $this->bd->query('DELETE FROM' . $table . 'WHERE id=' . $id );
+        mysqli_query($this->bd, $req);
     }
 }

@@ -9,21 +9,30 @@ class JuryRepo
     }
 
     public function findAllEndCampagne(){
-        $currentTime = new DateTime();
-        $req = $this->bd->prepare('SELECT * FROM campagne WHERE :currentTime > :datefin ORDER BY ID');
-        $req->execute(array(
-                        'currenTime' => $currentTime->format('m/d/Y H:i:s'),
-                        'datefin' => Campagne::getDateFin()->format('m/d/Y H:i:s')
-        ));
-        $resultat = $req->fetch_all(PDO::FETCH_CLASS);
+        $campagneRepo = new EntityRepo();
+        $campagnes = $campagneRepo->findAll('campagne');
 
-        return $resultat;
+        $array = [];
+
+        foreach ($campagnes as $campagne){
+            $datefin = $campagne["datefin"];
+            $currenttime = date('m/d/Y H:i:s');
+            $req = $this->bd->query('SELECT * FROM campagne WHERE '. $currenttime .' > ' . $datefin . ' ORDER BY ID');
+
+            $resultat = $req->fetch_all(MYSQLI_ASSOC);
+            $array = array_merge($array, $resultat);
+        }
+
+        return $array;
     }
 
     public function findAllSuccesEvenement($m_campagne){
 
-        $req = $this->bd->query('SELECT * FROM evenement WHERE m_campagne=' . $m_campagne .' AND ptAttribues >=' .Campagne::getNbMinimum() . 'ORDER BY ID');
-        $resultat = $req->fetchAll(PDO::FETCH_CLASS);
+        $EntityRepo = new EntityRepo();
+        $campagne = $EntityRepo->find('campagne',$m_campagne);
+
+        $req = $this->bd->query('SELECT * FROM evenement WHERE m_campagne=' . $m_campagne .' AND ptAttribues >=' . $campagne->getNbMinimum() . 'ORDER BY ID');
+        $resultat = $req->fetch_all(MYSQLI_ASSOC);
 
         return $resultat;
     }

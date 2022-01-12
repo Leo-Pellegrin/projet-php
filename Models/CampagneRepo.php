@@ -17,5 +17,6 @@ class CampagneRepo
 
         $req = $this->bd->query('INSERT INTO campagne (nom, datedeb, datefin, nbptinitial, nbminimum ) 
                                     VALUES('. $nom .','. $datedeb .',' . $datefin .',' . $nbPtInitial .','. $nbMinimum .')');
+        mysqli_query($this->bd, $req);
     }
 }

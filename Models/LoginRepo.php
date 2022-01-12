@@ -12,46 +12,24 @@ class LoginRepo
         $identifiant = $_POST['identifiant'];
         $password = $_POST['password'];
 
-        $req = $this->bd->query('SELECT ');
+        $req = $this->bd->query('SELECT * FROM user WHERE identifiant=\'' . $identifiant . '\'AND password=\'' . $password . '\'');
+        $resultat = $req->fetch_all(MYSQLI_ASSOC);
 
         $addnbconnexion = $this->bd->query('UPDATE user SET nbconnexion = nbconnexion + 1 WHERE password=\''.$password .'\'
                 AND username=\''.$identifiant .'\'');
 
         $role = $this->bd->query('SELECT role FROM user WHERE password=\''.$password .'\'
                 AND username=\''.$identifiant .'\'');
-
-        $resultat = $req->fetchall(PDO::FETCH_CLASS);
+        $resultatrole = $role->fetch_all(MYSQLI_ASSOC);
 
         if(!($resultat)) {
             $_SESSION['error'] = 'Erreur de connexion';
         }
         else {
             session_start();
-            $resultat2 = $addnbconnexion->fetchAll()
-
+            mysqli_query($this->bd, $addnbconnexion);
+            $_SESSION['suid'] = session_id();
+            return $resultatrole;
+        }
     }
 }
-
-
-
-
-
-
-
-
-
-}
-'SELECT * FROM user WHERE password=\''.$password .'\'
-                AND username=\''.$identifiant .'\''
-
-
-    $nbconnexion = mysqli_query($dbLink, $addnbconnexion);
-    echo 'Bonjour ' . $identifiant;
-    $_SESSION['suid'] = session_id();
-
-    $result = mysqli_query($dbLink, $role);
-    while ($row = mysqli_fetch_assoc($result)) {
-        $_SESSION['role'] = $row['role'];
-
-    }
-    header("Location: index.php");
