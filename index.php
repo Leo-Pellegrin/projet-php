@@ -15,8 +15,11 @@
     elseif(isset($_GET['demande'])){
         $controller->demandeController(); // Page qui affiche les demandes d'inscription
     }
-    elseif(isset($_GET['jury'])){
-        $controller->juryController(); // Page qui affiche les événements retenu pour le jury
+    elseif(isset($_GET['jurycampagne'])){
+        $controller->jurycampagneController(); // Page qui affiche les événements retenu pour le jury
+    }
+    elseif(isset($_GET['juryevenement'])){
+        $controller->juryevenementController();
     }
     elseif (isset($_GET['campagneform'])){
         $controller->campagneformController();

@@ -53,10 +53,12 @@ class Controller{
     public function campagneformController(){
         ob_start();
 
-        if($_SERVER['REQUEST_METHOD'] == 'POST'){
-
-        }
         include('Views/campagneform.phtml');
+
+        if($_SERVER['REQUEST_METHOD'] == 'POST'){
+            $CampagneRepo = new CampagneRepo();
+            $CampagneRepo->add();
+        }
         $html = ob_end_flush();
 
         return $html;
@@ -66,6 +68,12 @@ class Controller{
         ob_start();
 
         include('Views/evenementform.phtml');
+
+        if($_SERVER['REQUEST_METHOD'] == 'POST'){
+            $EvenementRepo = new EvenementRepo();
+            $EvenementRepo->add();
+        }
+
         $html = ob_end_flush();
 
         return $html;
@@ -75,15 +83,36 @@ class Controller{
         ob_start();
 
         include('Views/form.phtml');
+
+        if($_SERVER['REQUEST_METHOD'] == 'POST'){
+            $DemandeRepo = new DemandeRepo();
+            $DemandeRepo->add();
+        }
+
         $html = ob_end_flush();
 
         return $html;
     }
 
-    public function juryController(){
+    public function jurycampagneController(){
         ob_start();
 
-        include('Views/jury.phtml');
+        $JuryRepo = new JuryRepo();
+        $JuryRepo->findAllEndCampagne();
+
+        include('Views/jurycampagne.phtml');
+        $html = ob_end_flush();
+
+        return $html;
+    }
+
+    public function juryevenementController($campagne){
+        ob_start();
+
+        $JuryRepo = new JuryRepo();
+        $JuryRepo->findAllSuccesEvenement($campagne);
+
+        include('Views/juryevenement.phtml');
         $html = ob_end_flush();
 
         return $html;
@@ -93,6 +122,11 @@ class Controller{
         ob_start();
 
         include('Views/login.phtml');
+
+        if($_SERVER['REQUEST_METHOD'] == 'POST'){
+
+        }
+
         $html = ob_end_flush();
 
         return $html;

@@ -7,6 +7,7 @@ class Campagne
     private $datedeb;
     private $datefin;
     private $nbPtInitial;
+    private $nbMinimum;
     private $m_ideesEvent = [];
 
     public function __construct($nom, $datedeb, $datefin, $nbPtInitial){
@@ -22,6 +23,16 @@ class Campagne
             $this->nom = $nom;
             $this->nbPtInitial = $nbPtInitial;
         }
+    }
+
+    public function getNbMinimum()
+    {
+        return $this->nbMinimum;
+    }
+
+    public function setNbMinimum($nbMinimum)
+    {
+        $this->nbMinimum = $nbMinimum;
     }
 
     public function getId(){
