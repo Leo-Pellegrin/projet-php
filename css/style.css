@@ -57,6 +57,18 @@ header nav li:hover{
     transition: 0.3s ease;
 }
 
+hr:not([size]){
+    height: 1px;
+}
+
+.mb-5{
+    margin-bottom: 3rem!important;
+}
+
+mt-5{
+    margin-top: 3rem!important;
+}
+
 .div_campagne{
     text-align: center;
     width: 70%;
@@ -69,6 +81,16 @@ header nav li:hover{
 
 .div_campagne h1{
     font-size: 13pt;
+}
+
+.div_description{
+    text-align: center;
+    width: 70%;
+    margin-left: 15%;
+    background-color: rgba(0, 0, 0, 0.295);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 30px;
 }
 
 footer{

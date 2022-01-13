@@ -1,1 +1,59 @@
-<?php
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>e-event.io</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header>
+    <div id="main_div">
+        <h1>e-event.io</h1>
+        <input type="submit" value="S'inscrire">
+        <input type="submit" value="Se connecter">
+    </div>
+
+    <nav>
+        <ul>
+            <li><a href="#">Création</a></li>
+            <li><a href="#">Gestion des inscriptions</a></li>
+            <li><a href="#">Jury</a></li>
+        </ul>
+    </nav>
+
+</header>
+
+<hr class="mt-5 mb-5">
+
+<div>
+    <div class="div_idee">
+        <h1>Idée n°1</h1>
+    </div>
+
+    <div class="description">
+        <p class="description"> Description (recuperer description de la table) </p>
+    </div>
+
+    <div class="form">
+        <form action="" method="post">
+            <label>Nombre de points à attribuer</label>
+            <input name="Nombre de points" type="text"> <br>
+            <input name="action" value="OK" type="submit">
+            <?php
+            if ($_SESSION == null) {
+                echo $_SESSION['error'];
+
+            }
+
+            ?>
+        </form>
+
+
+</div>
+<footer>
+    <p>©e-event.io 2022</p>
+</footer>
+</body>
+</html>
