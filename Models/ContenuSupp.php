@@ -43,14 +43,17 @@ class ContenuSupp
         $this->validation = $validation;
     }
 
-    public function validerContenu(){
+      public function validerContenu(){
         $nbPtAttribues = $this->m_Evenement->getPtAttribues();
-        if ($this->nbPtRequis <= $nbPtAttribues) {
+        if ($this->nbPtRequis <= $nbPtAttribues && !$this->validation) {
             $this->validation = true;
             $message = 'Bonjour' . $this->m_Evenement->getOrganisateur() . PHP_EOL .
                 'Un objectif de points à été atteint, votre contenu supplémentaire : ' . $this->contenu .
                 ' va être ajouté à l\'évenement' . PHP_EOL . 'Cordialement' . PHP_EOL . 'L\'équipe Event-IO';
             mail($this->m_Evenement->getOrganisateur(), 'Contenu supplémentaire ajouté', $message);
+        }
+        elseif ($this->nbPtRequis > $nbPtAttribues && $this->validation){
+            $this->validation = false;
         }
     }
 }
