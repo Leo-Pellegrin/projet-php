@@ -8,6 +8,7 @@ html, body{
 #main_div{
     display: grid;
     grid-template-columns: 80% 10% 10%;
+    font-family: "Orbitron", serif;
 }
 
 #main_div h1{
@@ -55,10 +56,6 @@ footer{
 
 header{
     margin-bottom: 5%;
-}
-
-#banner{
-
 }
 
 .menu {
