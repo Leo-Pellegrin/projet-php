@@ -5,6 +5,8 @@ html, body{
     font-family: "Orbitron", serif;
 }
 
+
+
 #main_div{
     display: grid;
     grid-template-columns: 80% 10% 10%;
@@ -14,8 +16,6 @@ html, body{
 #main_div h1{
     margin-left: 57%;
 }
-
-
 
 #main_div input{
     background-color: rgba(0, 0, 0, 0.63);
@@ -49,13 +49,20 @@ html, body{
 }
 
 footer{
+    width: 100%;
+    display: inline-block;
     text-align: center;
-    position: static;
     margin-top: 40px;
+}
+
+footer p{
+    text-align: center;
 }
 
 header{
     margin-bottom: 5%;
+    background-image: url('/images/violetfond.png');
+
 }
 
 .menu {
@@ -66,7 +73,6 @@ header{
     width: 70%;
     margin: 0 auto;
     font-family: "Orbitron", serif;
-    justify-content: center;
     order: 2;
 }
 
