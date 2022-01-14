@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<html lang="fr">
 <?php
 session_start();
 if(isset($_SESSION['suid'])) { // Pour voir si il est connecté peut importe son role faire la ligne $_SESSION['suid']session_id() après session_start() quand il se connecte
@@ -10,8 +12,6 @@ else{
     die('Vous n\'avez pas accès à cett page');
 }
 ?>
-<!DOCTYPE html>
-<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">

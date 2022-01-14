@@ -8,7 +8,7 @@ class Controller{
         $EntityRepo = new EntityRepo();
         $campagnes = $EntityRepo->findAll('campagne');
 
-        include('Views/home.phtml');
+        include('Views/home.php');
         $html = ob_end_flush();
 
         return $html;
