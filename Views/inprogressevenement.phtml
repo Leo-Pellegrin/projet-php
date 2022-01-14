@@ -1,16 +1,3 @@
-<?php
-    session_start();
-    if(isset($_SESSION['suid'])) {
-        if ($_SESSION['role'] == 'organisateur'){}
-        else{
-            die('Vous n\'avez pas accès à cette page');
-        }
-    }
-    else{
-        die('Vous n\'avez pas accès à cette page');
-    }
-
-?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -43,21 +30,13 @@
 </header>
         <?php
             $campagne = $GLOBALS['campagne'];
-            var_dump($campagne);
-            echo $campagne->getTempsRestant();
-            /*if (!($campagne->getTempsRestant()) or $campagne->getTempsRestant() == 0)
-                echo 'Il n\'y a pas de campagne actuellement';*/
+            $currentTime = new DateTime(date('m/d/Y H:i:s'));
+            if($campagne->getDatefin() < $currentTime){
+            echo 'Campagne terminée' . '<br>';
+            }
+            else
+                $campagne->display();
         ?>
-        <div class="form">
-            <form method="post">
-                <label>Nom</label>
-                <input name="NomEvent" type="text"><br>
-                <label>Nom de l'organisateur</label>
-                <input name="IdOrga" type="text"><br>
-                <label>Description</label>
-                <textarea name="contenu" type="text"></textarea><br>
-                <input name="eventok" value="Valider" type="submit">
-            </form>
-        </div>
     </body>
 </html>
+
