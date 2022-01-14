@@ -36,6 +36,9 @@
     elseif (isset($_GET['profil'])){
         $controller->profilController($_GET['user']);
     }
+    elseif(isset($_GET['demandevalidation'])){
+        $controller->demandevalidationController();
+    }
     else{
         $controller->errorController();
     }
