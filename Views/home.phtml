@@ -1,26 +1,64 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-    <meta name="description" content="PageAcceuil">
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>E-Event.IO !</title>
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-<header>
-    <a href="index.phtml"><img class="logo" src="images/ alt=" logo"></a>
-    <nav>
-        <ul class="nav_links">
-            <li><a href="evenementform.phtml"> Proposer un événement </a> </li>
-            <li><a href="inprogressevenement.phtml"> Événement en cours </a> </li>
-            <li><a href="campagneform.phtml"> Créer une campagne </a> </li>
-        </ul>
-    </nav>
-    <a class="cta" href="login.phtml"><button> Se connecter </button> </a>
-    <a class="cta" href="form.phtml"><button> S'inscrire </button> </a>
-</header>
-<?php foreach ($campagnes as $campagne)?>
+    <header>
+        <div id="main_div">
+            <h1>E-Event.IO !</h1>
+            <input type="submit" value="S'inscrire">
+            <input type="submit" value="Se connecter">
+        </div>
+        <div class="menu">
+            <ol>
+                <li class="menu-item" aria-haspopup="true">
+                    <a id="lienmenu" href="#">Création</a>
+                    <ol class="sub-menu" aria-label="sub-menu">
+                        <li class="menu-item"><a id="lienmenu" href="campagneform.phtml">Création de campagnes</a></li>
+                        <li class="menu-item"><a id="lienmenu" href="evenementform.phtml">Création d'événements</a></li>
+                    </ol>
+                </li>
+                <li class="menu-item"><a id="lienmenu" href="demande.phtml">Gestion des inscriptions</a></li>
+                <li class="menu-item"><a id="lienmenu" href="jurycampagne.phtml">Jury</a></li>
+            </ol>
+        </div>
+    </header>
 
+        <div>
+            <div class="div_campagne">
+                <h1><a href="inprogressevenement.phtml">Campagne </a></h1>
+            </div>
+
+            <div class="div_campagne">
+                <h1><a href="inprogressevenement.phtml">Campagne n°1</a></h1>
+            </div>
+
+            <div class="div_campagne">
+                <h1><a href="inprogressevenement.phtml">Campagne n°1</a></h1>
+            </div>
+
+            <div class="div_campagne">
+                <h1><a href="inprogressevenement.phtml">Campagne n°1</a></h1>
+            </div>
+
+            <div class="div_campagne">
+                <h1><a href="inprogressevenement.phtml">Campagne n°1</a></h1>
+            </div>
+
+            <div class="div_campagne">
+                <h1><a href="inprogressevenement.phtml">Campagne n°1</a></h1>
+            </div>
+        </div>
+    <footer>
+        <a href=""><img src="images/" alt="Valid XHTML5"></a>
+        <a href=""><img src="images/" alt="Valid CSS3"></a>
+        <a href="mailto:projet.phpiutaix@gmail.com">Contactez nous par mail !</a>
+        <p>©e-event.io 2022</p>
+    </footer>
 </body>
 </html>
