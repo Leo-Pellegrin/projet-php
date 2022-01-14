@@ -43,7 +43,7 @@ class ContenuSupp
         $this->validation = $validation;
     }
 
-    public function validerContenu(){
+      public function validerContenu(){
         $nbPtAttribues = $this->m_Evenement->getPtAttribues();
         if ($this->nbPtRequis <= $nbPtAttribues && !$this->validation) {
             $this->validation = true;

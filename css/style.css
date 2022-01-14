@@ -1,89 +1,157 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat:500');
-
-* {
-    box-sizing: border-box;
-    margin : 0;
-    padding : 0;
-    background-color: #24252A;
+html, body{
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    font-family: "Orbitron", serif;
 }
 
-li, a, button {
-    font-family: "Montserrat", sans-serif;
-    font-weight: 500;
-    font-size: 16px;
-    color : #edf0f1;
-    text-decoration: none;
+
+
+#main_div{
+    display: grid;
+    grid-template-columns: 80% 10% 10%;
+    font-family: "Orbitron", serif;
 }
 
-header {
-    display: flex;
-    justify-content:  flex-end;
-    align-items: center;
-    padding: 30px 10%;
+#main_div h1{
+    margin-left: 57%;
 }
 
-div.form{
-    display : block;
+#main_div input{
+    background-color: rgba(0, 0, 0, 0.63);
+    color: white;
+    border-color: transparent;
+    height: 40px;
+    margin-top: 30px;
+    margin-right: 10%;
+}
+
+#main_div input:hover{
+    cursor: pointer;
+    background-color: black;
+    box-shadow: 0em 0em 1em black;
+    transition: 0.3s ease;
+}
+
+
+.div_campagne{
+    text-align: center;
+    width: 70%;
+    margin-left: 15%;
+    background-color: rgba(0, 0, 0, 0.295);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+}
+
+.div_campagne h1{
+    font-size: 13pt;
+}
+
+footer{
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+    margin-top: 40px;
+}
+
+footer p{
     text-align: center;
 }
 
-.form{
-    border : 8px solid white;
-    background: #0088a9;
+header{
+    margin-bottom: 5%;
+    background-image: url('/images/violetfond.png');
 
-    display: inline-block;
-    margin-top: 10%;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: left
 }
 
-form {
-    box-sizing: content-box;
+.menu {
+    display: -webkit-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    margin: 0 auto;
+    font-family: "Orbitron", serif;
+    order: 2;
 }
 
-
-input{
-    color: #edf0f1;
-}
-
-label{
-    color : #edf0f1;
-}
-
-.logo{
-    cursor: pointer;
-    margin-right: auto;
-}
-
-.nav_links {
+ol {
+    display: -webkit-box;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0.5em 0;
     list-style: none;
-    margin : auto;
 }
 
-.nav_links li {
-    display : inline-block;
-    padding: 0px 20px;
-}
-
-.nav_links li a{
-    transition: all 0.3s ease 0s;
-}
-
-.nav_links li a:hover{
-    color: #0088a9;
-}
-
-button{
-    padding : 9px 25px;
-    background-color: rgba(0, 136, 169, 1);
-    border : none;
-    border-radius : 50px;
+.menu-item {
+    background: #444;
+    padding: 1em 0.5em;
+    position: relative;
+    border-bottom: 5px solid #C70039;
+    margin: 0 0.1em;
+    -webkit-transition: border-bottom 0.23s ease-in-out, background 0.23s linear;
+    transition: border-bottom 0.23s ease-in-out, background 0.23s linear;
     cursor: pointer;
-    transition: all 0.3s ease 0s;
-    margin : auto;
+    min-width: 8em;
+    text-align: center;
+    align-items: flex-end;
 }
 
-button:hover{
-    background-color: rgba(0, 136, 169, 0.8);
+.menu-item[aria-haspopup="true"] {
+    border-bottom-color: #C70039;
+}
+
+.menu-item:hover, .menu-item:focus-within {
+    border-bottom-color: #581845;
+    background: #333;
+}
+
+.menu-item:hover .sub-menu, .menu-item:hover .sub-menu:hover, .menu-item:focus-within .sub-menu, .menu-item:focus-within .sub-menu:hover {
+    visibility: visible;
+    opacity: 1;
+    display: -webkit-box;
+    display: flex;
+}
+
+.sub-menu {
+    position: absolute;
+    align-items: flex-start;
+    flex-direction: column;
+    left: 0;
+    margin-top: 1em;
+    visibility: hidden;
+    display: none;
+    opacity: 0;
+}
+
+.sub-menu .menu-item {
+    margin: 0.1em 0;
+    padding: 1em;
+    width: 10em;
+    text-align: center;
+    z-index: 2;
+}
+
+#lienmenu {
+    color: #ffffff;
+    text-decoration: none;
+    text-transform: capitalize;
+}
+
+#lienmenu:focus {
+    outline: none;
+}
+
+.menu {
+    width: 70%;
+    font-size: 20px;
+}
+
+.menu-item {
+    margin: 0.1em;
 }
