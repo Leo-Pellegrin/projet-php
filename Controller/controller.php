@@ -20,7 +20,7 @@ class Controller{
         $EvenementRepo = new EvenementRepo();
         $evenements = $EvenementRepo->findAllEvenement($campagne);
 
-        include('Views/evenement.phtml');
+        include('Views/evenement.php');
         $html = ob_end_flush();
 
         return $html;
@@ -32,7 +32,7 @@ class Controller{
         $EvenementRepo = new EvenementRepo();
         $evenement = $EvenementRepo->findEvenement($campagne, $id);
 
-        include('Views/inprogressevenement.phtml');
+        include('Views/inprogressevenement.php');
         $html = ob_end_flush();
 
         return $html;
@@ -44,13 +44,13 @@ class Controller{
         $EntityRepo = new EntityRepo();
         $demandes = $EntityRepo->findAll('demande');
         if($_POST['action'] == 'Accepter'){
-            header('Location: demandevalidation.phtml');
+            header('Location: demandevalidation.php');
         }
         elseif($_POST['action'] == 'Refuser'){
             $EntityRepo->delete('demande', $_GET['demande']);
         }
 
-        include('Views/demande.phtml');
+        include('Views/demande.php');
         $html = ob_end_flush();
 
         return $html;
@@ -59,7 +59,7 @@ class Controller{
     public function campagneformController(){
         ob_start();
 
-        include('Views/campagneform.phtml');
+        include('Views/campagneform.php');
 
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
             $CampagneRepo = new CampagneRepo();
@@ -73,7 +73,7 @@ class Controller{
     public function evenementformController(){
         ob_start();
 
-        include('Views/evenementform.phtml');
+        include('Views/evenementform.php');
 
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
             $EvenementRepo = new EvenementRepo();
@@ -88,7 +88,7 @@ class Controller{
     public function formController(){
         ob_start();
 
-        include('Views/form.phtml');
+        include('Views/form.php');
 
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
             $DemandeRepo = new DemandeRepo();
@@ -103,7 +103,7 @@ class Controller{
     public function demandevalidationController($email){
         ob_start();
 
-        include('Views/demandevalidation.phtml');
+        include('Views/demandevalidation.php');
 
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
             $DemandeRepo = new DemandeRepo();
@@ -125,7 +125,7 @@ class Controller{
         $JuryRepo = new JuryRepo();
         $JuryRepo->findAllEndCampagne();
 
-        include('Views/jurycampagne.phtml');
+        include('Views/jurycampagne.php');
         $html = ob_end_flush();
 
         return $html;
@@ -137,7 +137,7 @@ class Controller{
         $JuryRepo = new JuryRepo();
         $JuryRepo->findAllSuccesEvenement($campagne);
 
-        include('Views/juryevenement.phtml');
+        include('Views/juryevenement.php');
         $html = ob_end_flush();
 
         return $html;
@@ -146,7 +146,7 @@ class Controller{
     public function loginController(){
         ob_start();
 
-        include('Views/login.phtml');
+        include('Views/login.php');
 
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
             $loginrepo = new LoginRepo();
@@ -164,7 +164,7 @@ class Controller{
         $EntityRepo = new EntityRepo();
         $profil = $EntityRepo->find('user', $id);
 
-        include('Views/profil.phtml');
+        include('Views/profil.php');
         $html = ob_end_flush();
 
         return $html;
@@ -173,7 +173,7 @@ class Controller{
     public function errorController(){
         ob_start();
 
-        include('Views/error.phtml');
+        include('Views/error.php');
         $html = ob_end_flush();
 
         return $html;

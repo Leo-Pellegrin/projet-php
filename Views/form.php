@@ -1,33 +1,9 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E-Event.IO !</title>
-    <link rel="stylesheet" href="../css/style.css">
-</head>
-<body>
-<header>
-    <div id="main_div">
-        <h1>E-Event.IO !</h1>
-        <input type="submit" value="S'inscrire">
-        <input type="submit" value="Se connecter">
-    </div>
-    <div class="menu">
-        <ol>
-            <li class="menu-item" aria-haspopup="true">
-                <a id="lienmenu" href="#">Création</a>
-                <ol class="sub-menu" aria-label="sub-menu">
-                    <li class="menu-item"><a id="lienmenu" href="campagneform.phtml">Création de campagnes</a></li>
-                    <li class="menu-item"><a id="lienmenu" href="evenementform.phtml">Création d'événements</a></li>
-                </ol>
-            </li>
-            <li class="menu-item"><a id="lienmenu" href="demande.phtml">Gestion des inscriptions</a></li>
-            <li class="menu-item"><a id="lienmenu" href="jurycampagne.phtml">Jury</a></li>
-        </ol>
-    </div>
-</header>
+<?php require './generation.php';
+displayHead('E-Event.IO !'); ?>
+    <body>
+        <?php displayHeader(false); ?>
         <div class="form">
             <form method="post">
                 <label for="sexe">Civilité</label> <br>
@@ -57,5 +33,6 @@
                 <input name="action" value="Valider" type="submit"><br>
             </form>
         </div>
+        <?php displayFooter() ?>
     </body>
 </html>

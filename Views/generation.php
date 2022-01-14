@@ -42,11 +42,11 @@ function checkLogin($role){
     if(isset($_SESSION['suid'])) { // Pour voir si il est connecté peut importe son role faire la ligne $_SESSION['suid']session_id() après session_start() quand il se connecte
         if ($_SESSION['role'] == $role){}
         else{
-            die('Vous n\'avez pas accès à cett page');
+            die('Vous n\'avez pas accès à cette page');
         }
     }
     else{
-        die('Vous n\'avez pas accès à cett page');
+        die('Vous n\'avez pas accès à cette page');
     }
 }
 
