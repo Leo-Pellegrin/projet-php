@@ -1,41 +1,5 @@
 <?php
-function displayHead($title){
-    echo '<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>' . $title . '</title>
-    <link rel="stylesheet" href="../css/style.css">
-    </head>';
-}
-
-function displayHeader($connected)
-{
-    echo '<header>
-    <div id="main_div">
-        <h1>E-Event.IO !</h1>';
-
-    if (!$connected) {
-        echo '<input type="submit" value="S\'inscrire">
-        <input type="submit" value="Se connecter">';
-    } else echo '<input type="submit" value="Déconnexion">';
-
-    echo '</div>
-    <div class="menu">
-        <ol>
-            <li class="menu-item" aria-haspopup="true">
-                <a id="lienmenu" href="#">Création</a>
-                <ol class="sub-menu" aria-label="sub-menu">
-                    <li class="menu-item"><a id="lienmenu" href="campagneform.phtml">Création de campagnes</a></li>
-                    <li class="menu-item"><a id="lienmenu" href="evenementform.phtml">Création d\'événements</a></li>
-                </ol>
-            </li>
-            <li class="menu-item"><a id="lienmenu" href="demande.phtml">Gestion des inscriptions</a></li>
-            <li class="menu-item"><a id="lienmenu" href="jurycampagne.phtml">Jury</a></li>
-        </ol>
-    </div>
-</header>';
-}
+$connected = false;
 
 function checkLogin($role){
     session_start();
@@ -50,6 +14,44 @@ function checkLogin($role){
     }
 }
 
+function displayHead($title){
+    echo '<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>' . $title . '</title>
+    <link rel="stylesheet" href="../css/style.css">
+    </head>';
+}
+
+function displayHeader()
+{
+    echo '<header>
+    <div id="main_div">
+        <h1>E-Event.IO !</h1>';
+
+    if (isset($_SESSION['suid'])) {
+        echo '<a href="form.php"><input type="submit" value="S\'inscrire"></a>
+        <a href="login.php"><input type="submit" value="Se connecter"></a>';
+    } else echo '<input type="submit" value="Déconnexion">';
+
+    echo '</div>
+    <div class="menu">
+        <ol>
+            <li class="menu-item" aria-haspopup="true">
+                <a id="lienmenu" href="#">Création</a>
+                <ol class="sub-menu" aria-label="sub-menu">
+                    <li class="menu-item"><a id="lienmenu" href="campagneform.php">Création de campagnes</a></li>
+                    <li class="menu-item"><a id="lienmenu" href="evenementform.php">Création d\'événements</a></li>
+                </ol>
+            </li>
+            <li class="menu-item"><a id="lienmenu" href="demande.php">Gestion des inscriptions</a></li>
+            <li class="menu-item"><a id="lienmenu" href="jurycampagne.php">Jury</a></li>
+        </ol>
+    </div>
+</header>';
+}
+
 function displayFooter(){
     echo'<footer>
     <a href=""><img src="../images/html5.png" alt="Valid XHTML5"></a>
@@ -58,4 +60,3 @@ function displayFooter(){
     <p>©e-event.io 2022</p>
     </footer>';
 }
-?>

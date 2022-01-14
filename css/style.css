@@ -195,3 +195,8 @@ ol {
     background-color: #353535;
 }
 
+.form{
+    display: block;
+    margin-left: 40%;
+}
+
