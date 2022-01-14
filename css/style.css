@@ -2,17 +2,20 @@ html, body{
     width: 100%;
     margin: 0px;
     padding: 0px;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "Orbitron", serif;
 }
 
 #main_div{
     display: grid;
     grid-template-columns: 80% 10% 10%;
+    font-family: "Orbitron", serif;
 }
 
 #main_div h1{
-    margin-left: 50%;
+    margin-left: 57%;
 }
+
+
 
 #main_div input{
     background-color: rgba(0, 0, 0, 0.63);
@@ -30,32 +33,6 @@ html, body{
     transition: 0.3s ease;
 }
 
-header nav li a{
-    text-decoration: none;
-    color: white;
-}
-
-header nav ul{
-    list-style-type: none;
-    display: grid;
-    grid-template-columns: 25% 25% 25%;
-    margin-left: 20%;
-    margin-top: 30px;
-    margin-bottom: 30px;
-}
-
-header nav li{
-    background-color: rgba(0, 0, 0, 0.63);
-    width: 80%;
-    text-align: center;
-    padding: 10px;
-}
-
-header nav li:hover{
-    background-color: black;
-    cursor: pointer;
-    transition: 0.3s ease;
-}
 
 .div_campagne{
     text-align: center;
@@ -77,3 +54,98 @@ footer{
     margin-top: 40px;
 }
 
+header{
+    margin-bottom: 5%;
+}
+
+.menu {
+    display: -webkit-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    margin: 0 auto;
+    font-family: "Orbitron", serif;
+    justify-content: center;
+    order: 2;
+}
+
+ol {
+    display: -webkit-box;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0.5em 0;
+    list-style: none;
+}
+
+.menu-item {
+    background: #444;
+    padding: 1em 0.5em;
+    position: relative;
+    border-bottom: 5px solid #C70039;
+    margin: 0 0.1em;
+    -webkit-transition: border-bottom 0.23s ease-in-out, background 0.23s linear;
+    transition: border-bottom 0.23s ease-in-out, background 0.23s linear;
+    cursor: pointer;
+    min-width: 8em;
+    text-align: center;
+    align-items: flex-end;
+}
+
+.menu-item[aria-haspopup="true"] {
+    border-bottom-color: #C70039;
+}
+
+.menu-item:hover, .menu-item:focus-within {
+    border-bottom-color: #581845;
+    background: #333;
+}
+
+.menu-item:hover .sub-menu, .menu-item:hover .sub-menu:hover, .menu-item:focus-within .sub-menu, .menu-item:focus-within .sub-menu:hover {
+    visibility: visible;
+    opacity: 1;
+    display: -webkit-box;
+    display: flex;
+}
+
+.sub-menu {
+    position: absolute;
+    align-items: flex-start;
+    flex-direction: column;
+    left: 0;
+    margin-top: 1em;
+    visibility: hidden;
+    display: none;
+    opacity: 0;
+}
+
+.sub-menu .menu-item {
+    margin: 0.1em 0;
+    padding: 1em;
+    width: 10em;
+    text-align: center;
+    z-index: 2;
+}
+
+#lienmenu {
+    color: #ffffff;
+    text-decoration: none;
+    text-transform: capitalize;
+}
+
+#lienmenu:focus {
+    outline: none;
+}
+
+.menu {
+    width: 70%;
+    font-size: 20px;
+}
+
+.menu-item {
+    margin: 0.1em;
+}

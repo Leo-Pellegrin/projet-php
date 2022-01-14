@@ -1,12 +1,12 @@
 <?php
-
+require 'www/Models/';
 class Controller{
 
     public function homeController(){
         ob_start();
 
         $EntityRepo = new EntityRepo();
-        $campagne = $EntityRepo->findAll('campagne');
+        $campagnes = $EntityRepo->findAll('campagne');
 
         include('Views/home.phtml');
         $html = ob_end_flush();
@@ -46,7 +46,7 @@ class Controller{
         if($_POST['action'] == 'Accepter'){
             header('Location: demandevalidation.phtml');
         }
-        elseif($_POST['action'] == ''){
+        elseif($_POST['action'] == 'Refuser'){
             $EntityRepo->delete('demande', $_GET['demande']);
         }
 
