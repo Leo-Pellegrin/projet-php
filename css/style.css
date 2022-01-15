@@ -250,6 +250,14 @@ ol {
     border-width: 0;
 }
 
+.form input[type="submit"]{
+    margin-top: 5%;
+    margin-left: 33%;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px #353535;
+    transition: box-shadow 1s;
+}
+
 /* FORM:HOVER */
 .form input:hover{
     box-shadow: 6px 6px 6px #565656;
