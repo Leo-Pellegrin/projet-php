@@ -4,6 +4,7 @@ html, body{
     padding: 0;
     font-family: "Orbitron", serif;
     background-color: #d9d9d9;
+    height: 100%;
 }
 
 
@@ -65,12 +66,10 @@ footer{
     background-color: #353535;
     color: white;
     width: 100%;
-    display: inline-block;
     text-align: center;
     margin-top: 40px;
     position: absolute;
     bottom: 0;
-
 }
 
 footer p{
@@ -241,3 +240,47 @@ form input[type="radio"]{
     border-width: 0;
 }
 
+.listedemande{
+    border: solid black;
+    min-width: 20%;
+    min-height: 50%;
+    float : left;
+    margin-left: 4%;
+}
+
+.demandedescription{
+    border: solid black;
+    min-width: 70%;
+    min-height: 50%;
+    float: right;
+    margin-right: 4%;
+}
+
+.demandedescription input{
+    display: inline-block;
+    align-items: center;
+}
+
+.listedemande button{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    padding: 1em;
+    border: solid black;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0.5em;
+    border-radius: 15px;
+}
+
+.Titre{
+    align-items: center;
+    text-align: center;
+}
+
+.demandeinformation{
+    border : solid black;
+    font-family: "Orbitron", serif;
+    text-align: center;
+    margin: 1em;
+}

@@ -6,13 +6,6 @@ displayHead('E-Event.IO !'); ?>
     <body>
         <?php displayHeader();
 
-        $campagne = $GLOBALS['campagne'];
-        $currentTime = new DateTime(date('m/d/Y H:i:s'));
-        if($campagne->getDatefin() < $currentTime){
-        echo 'Campagne terminée' . '<br>';
-        }
-        else
-            $campagne->display();
 
         displayFooter(); ?>
     </body>

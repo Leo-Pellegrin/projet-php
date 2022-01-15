@@ -4,13 +4,7 @@
 checkLogin('organisateur');
 displayHead('E-Event.IO !'); ?>
     <body>
-        <?php displayHeader();
-        $campagne = $GLOBALS['campagne'];
-        var_dump($campagne);
-        echo $campagne->getTempsRestant();
-        /*if (!($campagne->getTempsRestant()) or $campagne->getTempsRestant() == 0)
-            echo 'Il n\'y a pas de campagne actuellement';*/
-        ?>
+        <?php displayHeader(); ?>
         <div class="form">
             <form method="post">
                 <label>Nom</label>
