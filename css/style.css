@@ -200,7 +200,7 @@ ol {
     margin: 0.1em 0.1em 0 0.1em;
     background-color: #353535;
 }
-/** FORM **/
+
 /**---- FORM ----**/
 .form{
     width: 100%;
@@ -214,7 +214,6 @@ ol {
     justify-content: center;
     flex-direction: row;
     margin-top: 5px;
-    flex-direction: row;
 }
 
 /*form input[type="radio"]{
@@ -242,21 +241,28 @@ form input[type="radio"]{
     border-width: 0;
 }
 
-.form input[type="radio"]{
+/*.form input[type="radio"]{
     margin-left: 33%;
     border-radius: 5px;
     box-shadow: 2px 2px 5px #353535;
     transition: box-shadow 1s;
-}
+}*/
 
 .form select{
-    width: 100%;
     margin-left: -25%;
     width: 153%;
     border-radius: 5px;
     box-shadow: 2px 2px 5px #353535;
     transition: box-shadow 1s;
     border-width: 0;
+}
+
+.form input[type="submit"]{
+    margin-top: 5%;
+    margin-left: 33%;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px #353535;
+    transition: box-shadow 1s;
 }
 
 /* FORM:HOVER */
@@ -279,6 +285,7 @@ form input[type="radio"]{
     box-shadow: 6px 6px 6px #565656;
     transition: box-shadow 1s;
 }
+
 
 .listedemande{
     border: solid black;
