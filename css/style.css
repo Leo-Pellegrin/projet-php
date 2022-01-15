@@ -59,6 +59,13 @@ html, body{
 h2{
     text-align: center;
     font-family: "Orbitron", serif;
+    margin-bottom: 2%;
+    text-decoration: underline;
+}
+
+h3{
+    text-align: center;
+    font-family: "Orbitron", serif;
     margin-bottom: 3%;
 }
 
@@ -210,8 +217,8 @@ ol {
     flex-direction: row;
 }
 
-form input[type="radio"]{
 /*form input[type="radio"]{
+form input[type="radio"]{
     margin-left: 47%;
 }
 }*/
@@ -221,7 +228,6 @@ form input[type="radio"]{
     width: 150%;
     border-radius: 5px;
     box-shadow: 2px 2px 5px #353535;
-    box-shadow: 2px 2px 6px #353535;
     transition: box-shadow 1s;
     border-width: 0;
 }
@@ -280,6 +286,7 @@ form input[type="radio"]{
     min-height: 50%;
     float : left;
     margin-left: 4%;
+    border-radius: 15px;
 }
 
 .demandedescription{
@@ -288,18 +295,40 @@ form input[type="radio"]{
     min-height: 50%;
     float: right;
     margin-right: 4%;
+    border-radius: 15px;
+}
+
+.demandedescription form{
+    text-align: center;
+}
+
+.demandedescription form[type='text']{
+    text-align: center;
+    margin-left: -25%;
+    width: 150%;
+    border-radius: 5px;
+    border-width: 0;
 }
 
 .demandedescription input{
-    display: inline-block;
-    align-items: center;
+    border: solid black;
+    border-radius: 15px;
+    padding: 15px 40px;
+    margin-left: 2em;
+    margin-right: 2em;
+    font-size: 15px;
+}
+
+.demandedescription input:hover{
+    box-shadow: 6px 6px 6px #565656;
+    transition: box-shadow 1s;
 }
 
 .listedemande button{
     display: flex;
     text-align: center;
     justify-content: center;
-    padding: 1em;
+    padding: 10px 80px;
     border: solid black;
     margin-left: auto;
     margin-right: auto;
@@ -307,14 +336,78 @@ form input[type="radio"]{
     border-radius: 15px;
 }
 
+.listedemande button:hover{
+    box-shadow: 6px 6px 6px #565656;
+    transition: box-shadow 1s;
+}
+
 .Titre{
     align-items: center;
     text-align: center;
+    margin-bottom: 2.5em;
+    text-decoration: underline;
 }
 
 .demandeinformation{
     border : solid black;
     font-family: "Orbitron", serif;
     text-align: center;
-    margin: 1em;
+    margin: 3em 1em 3em;
+    border-radius: 15px;
+}
+
+.demandedescription h2{
+    font-family: "Orbitron", serif;
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+
+.nbdemandevalidation{
+    border: solid black;
+    min-width: 70%;
+    min-height: 50%;
+    float: right;
+    margin-right: 4%;
+    border-radius: 15px;
+}
+
+.nbdemandevalidation h2{
+    text-align: center;
+}
+
+.nbdemandevalidation p{
+    border: solid black;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 15px;
+    text-align: center;
+    padding: 1.5em;
+    max-height: 7%;
+    max-width: 10%;
+    font-size: 20px;
+}
+
+.nbdemandevalidation form{
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+}
+
+.nbdemandevalidation input{
+    margin-top: 1em;
+    margin-bottom: 1em;
+    border: solid black;
+    border-radius: 15px;
+    padding: 0.7em;
+}
+
+.nbdemandevalidation input[type='button']{
+    padding-left: 2em;
+    padding-right: 2em;
+    font-size: 15px;
+}
+
+.nbdemandevalidation input[type='button']:hover{
+    box-shadow: 6px 6px 6px #565656;
+    transition: box-shadow 1s;
 }

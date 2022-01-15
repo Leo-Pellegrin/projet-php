@@ -7,12 +7,9 @@ displayHead('E-Event.IO !'); ?>
         <?php displayHeader(); ?>
         <div class="form">
             <form method="post">
-                <label>Nom</label>
-                <input name="NomEvent" type="text"><br>
-                <label>Nom de l'organisateur</label>
-                <input name="IdOrga" type="text"><br>
-                <label>Description</label>
-                <textarea name="contenu" type="text"></textarea><br>
+                <label>Nom <input name="NomEvent" type="text"> </label><br>
+                <label>Nom de l'organisateur <input name="IdOrga" type="text"></label><br>
+                <label>Description<textarea name="contenu" ></textarea></label><br>
                 <input name="eventok" value="Valider" type="submit">
             </form>
         </div>

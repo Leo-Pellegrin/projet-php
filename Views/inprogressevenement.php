@@ -4,10 +4,33 @@
 checkLogin('admin');
 displayHead('E-Event.IO !'); ?>
     <body>
-        <?php displayHeader();
+        <?php displayHeader(); ?>
+        <div>
+            <h2>Liste des événements</h2>
+            <h3>De la campagne : Nom Campagne</h3>
 
+            <div class="div_campagne">
+                <h1><a href="evenement.php">Evenement n°1</a></h1>
+            </div>
 
-        displayFooter(); ?>
+            <div class="div_campagne">
+                <h1><a href="evenement.php">Evenement n°1</a></h1>
+            </div>
+
+            <div class="div_campagne">
+                <h1><a href="evenement.php">Evenement n°1</a></h1>
+            </div>
+
+            <div class="div_campagne">
+                <h1><a href="evenement.php">Evenement n°1</a></h1>
+            </div>
+
+            <div class="div_campagne">
+                <h1><a href="evenement.php">Evenement n°1</a></h1>
+            </div>
+        </div>
+
+        <?php displayFooter(); ?>
     </body>
 </html>
 

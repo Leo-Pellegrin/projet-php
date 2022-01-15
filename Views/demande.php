@@ -13,6 +13,7 @@ checkLogin('admin');?>
                 <button>Test n°2</button>
             </div>
             <div class="demandedescription">
+                <h2>Numéro de la demande :</h2>
                 <div class="demandeinformation">
                     <p>Sexe :</p>
                     <p>Email :</p>
