@@ -236,7 +236,7 @@ form input[type="radio"]{
     border-width: 0;
 }
 
-@ -232,12 +236,36 @@ form input[type="radio"]{
+.form input[type="radio"]{
     margin-left: 33%;
     border-radius: 5px;
     box-shadow: 2px 2px 5px #353535;
