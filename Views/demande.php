@@ -3,7 +3,7 @@
 <?php require './generation.php';
 displayHead('E-Event.IO !'); ?>
     <body>
-        <?php displayHeader(false); ?>
+        <?php displayHeader(); ?>
         <div class="Titre">
             <h1>Gestion des inscriptions</h1>
         </div>

@@ -4,7 +4,7 @@
 checkLogin('admin');
 displayHead('E-Event.IO !'); ?>
     <body>
-        <?php displayHeader(true); ?>
+        <?php displayHeader(); ?>
         <div class="Titre">
             <h1>Gestion des inscriptions</h1>
         </div>

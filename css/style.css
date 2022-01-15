@@ -195,8 +195,49 @@ ol {
     background-color: #353535;
 }
 
+/** FORM **/
 .form{
-    display: block;
-    margin-left: 40%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form label{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    margin-top: 5px;
+    flex-direction: row;
+}
+
+form input[type="radio"]{
+    margin-left: 47%;
+}
+
+.form input[type="text"]{
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px #353535;
+    border-width: 0;
+}
+
+.form input[type="password"]{
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px #353535;
+    border-width: 0;
+}
+
+.form input[type="submit"]{
+    margin-top: 5%;
+    margin-left: 33%;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px #353535;
+}
+
+.form select{
+    width: 100%;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px #353535;
+    border-width: 0;
 }
 

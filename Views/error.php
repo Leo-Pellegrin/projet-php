@@ -3,7 +3,7 @@
 <?php require './generation.php';
 displayHead('E-Event.IO !'); ?>
     <body>
-        <?php displayHeader(false); ?>
+        <?php displayHeader(); ?>
         <div class="error">
             <p>404 Not Found</p></br>
             <p>The page that you have requested could not be found</p>

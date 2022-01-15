@@ -4,7 +4,7 @@
 checkLogin('admin');
 displayHead('E-Event.IO !'); ?>
     <body>
-        <?php displayHeader(false);
+        <?php displayHeader();
 
         $campagne = $GLOBALS['campagne'];
         $currentTime = new DateTime(date('m/d/Y H:i:s'));

@@ -4,18 +4,18 @@
 checkLogin('admin');
 displayHead('E-Event.IO !'); ?>
     <body>
-        <?php displayHeader(false); ?>
+        <?php displayHeader(); ?>
         <div class="form">
             <form method="post" action="">
-                <label>Nom</label>
+                <label for="nom">Nom</label>
                 <input name="nom" type="text"><br>
-                <label>Date de Début</label>
+                <label for="datedeb">Date de Début</label>
                 <input name="datedeb" type="date"><br>
-                <label>Date de Fin</label>
+                <label for="datefin">Date de Fin</label>
                 <input name="datefin" type="date"><br>
-                <label>Nombre de points initial</label>
+                <label for="nbPtInitial">Nombre de points initial</label>
                 <input name="nbPtInitial" type="number"><br>
-                <label>Nombre de points pour qu'un événement soit considéré</label>
+                <label for="ptminimum">Nombre de points pour qu'un événement soit considéré</label>
                 <input name="ptminimum" type="number"><br>
                 <input name="campok" value="Valider" type="submit">
             </form>

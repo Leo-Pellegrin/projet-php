@@ -30,10 +30,11 @@ function displayHeader()
     <div id="main_div">
         <h1>E-Event.IO !</h1>';
 
-    if (isset($_SESSION['suid'])) {
+    if (isset($_SESSION['suid'])) echo '<input type="submit" value="Déconnexion">';
+    else {
         echo '<a href="form.php"><input type="submit" value="S\'inscrire"></a>
         <a href="login.php"><input type="submit" value="Se connecter"></a>';
-    } else echo '<input type="submit" value="Déconnexion">';
+    }
 
     echo '</div>
     <div class="menu">

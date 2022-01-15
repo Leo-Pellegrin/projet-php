@@ -3,7 +3,7 @@
 <?php require './generation.php';
 displayHead('E-Event.IO !'); ?>
     <body>
-        <?php displayHeader(false); ?>
+        <?php displayHeader(); ?>
         <div class="evenement">
             <div class ="evenementTitre">
                 <h1>Titre de l'événement</h1>

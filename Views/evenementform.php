@@ -4,7 +4,7 @@
 checkLogin('organisateur');
 displayHead('E-Event.IO !'); ?>
     <body>
-        <?php displayHeader(true);
+        <?php displayHeader();
         $campagne = $GLOBALS['campagne'];
         var_dump($campagne);
         echo $campagne->getTempsRestant();

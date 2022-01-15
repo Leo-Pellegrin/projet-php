@@ -7,6 +7,6 @@ if(!(isset($_SESSION['suid']))) { // Pour voir si il est connecté peut importe 
 }
 displayHead('E-Event.IO !'); ?>
 <body>
-<?php displayHeader(false); ?>
+<?php displayHeader(); ?>
 <?php displayFooter(); ?>
 </body>

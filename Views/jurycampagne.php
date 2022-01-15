@@ -4,7 +4,7 @@
 checkLogin('jury');
 displayHead('E-Event.IO !'); ?>
     <body>
-    <?php displayHeader(false); ?>
+    <?php displayHeader(); ?>
     <div class="Titre"> </div>
     <?php displayFooter(); ?>
     </body>

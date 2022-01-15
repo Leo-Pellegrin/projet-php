@@ -3,7 +3,7 @@
 <?php require './generation.php';
 displayHead('E-Event.IO !'); ?>
     <body>
-        <?php displayHeader(false); ?>
+        <?php displayHeader(); ?>
         <div>
             <h2>Liste des campagnes</h2>
 
