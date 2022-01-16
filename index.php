@@ -1,46 +1,14 @@
 <?php
-    include 'Controller/controller.php';
+define('URL', str_replace("index.php", "", (isset($_SERVER['HTTPS']) ? "https" : "http") . 
+"://$_SERVER[HTTP_HOST]$_SERVER[PHP_SELF]"));
 
-    $controller = new Controller();
+// Définir les entiers des rôles :
+define('ROLE_ETD', 0);
+define('ROLE_ADM', 1);
+define('ROLE_ORGA', 2);
+define('ROLE_JURY', 3);
 
-    if (empty($_SESSION['QUERY_STRING'])){
-        $controller->homeController();
-    }
-    elseif(isset($_GET['inprogressevenement'])){
-        $controller->campagneController($_GET['campagne']); // Page qui affiche les événements d'une campagne
-    }
-    elseif(isset($_GET['evenement'])){
-        $controller->evenementController($_GET['campagne'], $_GET['evenement']); // Page qui affiche les détails d'un événement
-    }
-    elseif(isset($_GET['demande'])){
-        $controller->demandeController(); // Page qui affiche les demandes d'inscription
-    }
-    elseif(isset($_GET['jurycampagne'])){
-        $controller->jurycampagneController(); // Page qui affiche les événements retenu pour le jury
-    }
-    elseif(isset($_GET['juryevenement'])){
-        $controller->juryevenementController($_GET['campagne']);
-    }
-    elseif (isset($_GET['campagneform'])){
-        $controller->campagneformController();
-    }
-    elseif (isset($_GET['evenementform'])){
-        $controller->evenementformController();
-    }
-    elseif (isset($_GET['form'])){
-        $controller->formController();
-    }
-    elseif (isset($_GET['login'])){
-        $controller->loginController();
-    }
-    elseif (isset($_GET['profil'])){
-        $controller->profilController($_GET['user']);
-    }
-    elseif(isset($_GET['demandevalidation'])){
-        $controller->demandevalidationController();
-    }
-    else{
-        $controller->errorController();
-    }
+require_once('Controllers/Router.php');
 
-?>
+$router = new Router();
+$router->routeReq();
