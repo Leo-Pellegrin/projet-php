@@ -216,12 +216,6 @@ ol {
     margin-top: 5px;
 }
 
-/*form input[type="radio"]{
-form input[type="radio"]{
-    margin-left: 47%;
-}
-}*/
-
 .form input[type="text"]{
     margin-left: -25%;
     width: 150%;
@@ -241,15 +235,7 @@ form input[type="radio"]{
     border-width: 0;
 }
 
-/*.form input[type="radio"]{
-    margin-left: 33%;
-    border-radius: 5px;
-    box-shadow: 2px 2px 5px #353535;
-    transition: box-shadow 1s;
-}*/
-
 .form select{
-    margin-left: -25%;
     width: 153%;
     border-radius: 5px;
     box-shadow: 2px 2px 5px #353535;
@@ -259,7 +245,6 @@ form input[type="radio"]{
 
 .form input[type="submit"]{
     margin-top: 5%;
-    margin-left: 33%;
     border-radius: 5px;
     box-shadow: 2px 2px 5px #353535;
     transition: box-shadow 1s;
