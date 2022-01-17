@@ -8,7 +8,7 @@ abstract class Model
     private static function setBdd()
     {
         self::$_bdd = new PDO('mysql:host=mysql-relave.alwaysdata.net;dbname=relave_bd;charset=utf8',
-                              'relave', 'Taz7997!');
+                              'relave', 'mdp');
         self::$_bdd->SetAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
     }
 
