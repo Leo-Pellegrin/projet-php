@@ -1,21 +1,10 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>e-event.io | Utilisateurs</title>
-    <link rel="stylesheet" href="../Public/Css/style.css">
-</head>
+<?php displayHead("Utilisateur");?>
 <body>
-    <header>
-        <div id="main_div">
-            <h1><a href="<?= URL ?>">e-event.io</a></h1>
-            <p>Bienvenue, <?= $_SESSION['username'] ?> !</p>
-        </div>
-    </header>
 
     <?php
+        displayHeader();
         if($errorMsg != null)
             echo '<h2 id="err_h2">'.$errorMsg.'</h2>';
     ?>
@@ -38,7 +27,9 @@
         <?php } ?>
 
     <footer>
-        <p>©e-event.io 2022</p>
-    </footer>
+        <a href=""><img src="../images/html5.png" alt="Valid XHTML5"></a>
+        <a class="css" href=""><img src="../images/css3.png" alt="Valid CSS3"></a>
+        <a href="mailto:projet.phpiutaix@gmail.com">Contactez nous par mail !</a>
+        <p>©e-event.io 2022</p>    </footer>
 </body>
 </html>

@@ -36,21 +36,32 @@ function displayHeader()
         <a href="login.php"><input type="submit" value="Se connecter"></a>';
     }
 
-    echo '</div>
-    <div class="menu">
-        <ol>
-            <li class="menu-item" aria-haspopup="true">
-                <a id="lienmenu" href="#">Création</a>
-                <ol class="sub-menu" aria-label="sub-menu">
-                    <li class="menu-item"><a id="lienmenu" href="campagneform.php">Création de campagnes</a></li>
-                    <li class="menu-item"><a id="lienmenu" href="evenementform.php">Création d\'événements</a></li>
-                </ol>
-            </li>
-            <li class="menu-item"><a id="lienmenu" href="demande.php">Gestion des inscriptions</a></li>
-            <li class="menu-item"><a id="lienmenu" href="jurycampagne.php">Jury</a></li>
-        </ol>
-    </div>
-</header>';
+    echo '<header>
+        <div id="main_div">
+            <h1>e-event.io</h1>
+            <?php if(isset($_SESSION[\'username\'])){ ?>
+                <p>Bienvenue, <?= $_SESSION[\'username\'] ?> !</p>
+                <a href="deco"><input type="submit" value="Déconnexion"></a>
+            <?php }else{ ?>
+                <a href="register"><input type="submit" value="S\'inscrire"></a>
+                <a href="login"><input type="submit" value="Se connecter"></a>
+            <?php } ?>
+        </div>
+
+        <nav class="menu">
+            <ul class="menu-item" aria-haspopup="true">
+                <?php if($_SESSION[\'role\'] == ROLE_ADM){ ?>
+                    <li class="menu-item"><a id="lienmenu" href="demande">Gérer les demandes</a></li>
+                    <li class="menu-item"><a id="lienmenu" href="campagneadmin">Gérer les campagnes</a></li>
+                    <li class="menu-item"><a id="lienmenu" href="user">Gérer les utilisateurs</a></li>
+                        <?php }elseif($_SESSION[\'role\'] == ROLE_ORGA){ ?>
+                    <li class="menu-item"><a id="lienmenu" href="campagne">Mes événements</a></li>
+                        <?php }elseif($_SESSION[\'role\'] == ROLE_JURY){ ?>
+                    <li class="menu-item"><a id="lienmenu" href="jury">Campagnes en attente</a></li>
+                        <?php } ?>
+            </ul>
+        </nav>
+    </header>';
 }
 
 function displayFooter(){

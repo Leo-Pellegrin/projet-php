@@ -1,20 +1,8 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>e-event.io | Demandes</title>
-    <link rel="stylesheet" href="../Public/Css/style.css">
-</head>
+<?php displayHead("Demaned");?>
 <body>
-    <header>
-        <div id="main_div">
-            <h1><a href="<?= URL ?>">e-event.io</a></h1>
-            <p>Bienvenue, <?= $_SESSION['username'] ?> !</p>
-        </div>
-    </header>
-
+    <?php displayHeader();?>
     <a href="https://www.dashlane.com/fr/features/password-generator" target="_blank">Générateur de mot de passe</a>
 
     <?php
@@ -23,13 +11,18 @@
     ?>
 
         <?php foreach($demandes as $demande): ?>
-            <div class="div_campagne">
-                <h1>Email : <?= $demande->getEmail(); ?></h1>
-                <h2>Nom : <?= $demande->getNom(); ?></h2>
-                <h2>Prénom : <?= $demande->getPrenom(); ?></h2>
-                <h2>Rôle : <?= $demande->afficherRole(); ?></h2>
-                <h2>Inscrit depuis : <?= $demande->afficherTemp(); ?></h2>
+            <div class="listedemande">
+                <button><?=$demande->getId(); $demande->getNom();?></button>
+            </div>
 
+            <div class="demandedescription">
+                <div class="demandeinformation">
+                    <h1>Email : <?= $demande->getEmail(); ?></h1>
+                    <h2>Nom : <?= $demande->getNom(); ?></h2>
+                    <h2>Prénom : <?= $demande->getPrenom(); ?></h2>
+                    <h2>Rôle : <?= $demande->afficherRole(); ?></h2>
+                    <h2>Inscrit depuis : <?= $demande->afficherTemp(); ?></h2>
+                </div>
                 <form action="demande&id=<?= $demande->getId(); ?>" method="post">
                     <input type="text" name="username" placeholder="Username" required><br/>
                     <input type="password" name="password" placeholder="Mot de passe" required><br/>
@@ -43,6 +36,9 @@
         <?php endforeach; ?>
 
     <footer>
+        <a href=""><img src="../images/html5.png" alt="Valid XHTML5"></a>
+        <a class="css" href=""><img src="../images/css3.png" alt="Valid CSS3"></a>
+        <a href="mailto:projet.phpiutaix@gmail.com">Contactez nous par mail !</a>
         <p>©e-event.io 2022</p>
     </footer>
 </body>
