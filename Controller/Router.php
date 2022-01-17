@@ -26,7 +26,7 @@ class Router
                 $controller = explode('&', $url[0]);
                 $controller = ucfirst(strtolower($controller[0]));
                 $controllerClass = 'Controller'.$controller;
-                $controllerFile = 'Controllers/'.$controllerClass.'.php';
+                $controllerFile = 'Controller/'.$controllerClass.'.php';
             
                 if(file_exists($controllerFile))
                 {
