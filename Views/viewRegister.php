@@ -30,6 +30,7 @@
         </ol>
     </nav>
 </header>
+
     <?php
         if($errorMsg != null)
             echo '<h2 id="err_h2">'.$errorMsg.'</h2>';
@@ -38,34 +39,35 @@
             echo '<h2 id="succ_h2">'.$sucessMsg.'</h2>';
     ?>
 
-    <form method="post" class="form">
-        <h1>Demande d'inscription</h1>
-        <hr>
-        <label>
-            Email
-            <input type="mail" name="email" placeholder="Email" required/><br/>
-        </label>
-        <label>
-            Nom
-            <input type="text" name="nom" placeholder="Nom" required/><br/>
-        </label>
-        <label>
-            Prénom
-            <input type="text" name="prenom" placeholder="Prenom" required/><br/>
-        </label>
-
-        <label>
-            Rôle
-            <select name="role" style="margin-left: 36.5%;">
+    <h2>Demande d'inscription</h2>
+    <div class="form">
+        <form method="post">
+            <label for="nom">Nom</label>
+            <input name="nom" placeholder="Nom" type="text" required>
+            <label for="nom">Prénom</label>
+            <input name="nom" placeholder="Prénom" type="text" required>
+            <label for="email" >E-mail</label>
+            <input name="email" placeholder="E-mail" type="text" required> <br>
+            <label for="tel" >Téléphone</label>
+            <input name="tel" placeholder="N° de téléphone" type="text" required> <br>
+            <!--<label for="pays" >Pays</label>
+            <select name="pays">
+                <option value="France">France</option>
+                <option value="Allemagne">Allemagne</option>
+                <option value="Italie">Italie</option>
+                <option value="Royaume-Uni">Royaume-Uni</option>
+            </select> <br>-->
+            <label name="role" >Rôle</label>
+            <select name="role" required>
                 <option value="<?= ROLE_ETD ?>">Etudiant</option>
                 <option value="<?= ROLE_ADM ?>">Administrateur</option>
                 <option value="<?= ROLE_ORGA ?>">Organisateur</option>
                 <option value="<?= ROLE_JURY ?>">Jury</option><br/>
-            </select>
-        </label>
+            </select> <br>
+            <input type="submit" style="margin-left: 3%;cursor: pointer;" name="register" value="Soumettre une demande">
+        </form>
+    </div>
 
-        <input type="submit" style="margin-left: 36.5%;cursor: pointer;" name="register" value="Soumettre une demande">
-    </form>
 
     <footer>
         <a href=""><img src="../images/html5.png" alt="Valid XHTML5"></a>
