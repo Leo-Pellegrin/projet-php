@@ -7,8 +7,8 @@ abstract class Model
     // Instancier _bdd
     private static function setBdd()
     {
-        self::$_bdd = new PDO('mysql:host=mysql-relave.alwaysdata.net;dbname=relave_bd;charset=utf8',
-                              'relave', 'mdp');
+        self::$_bdd = new PDO('mysql:host=mysql-projetphp45.alwaysdata.net;dbname=projetphp45_bd;charset=utf8',
+                              '252875', 'Projetphp@2021');
         self::$_bdd->SetAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
     }
 

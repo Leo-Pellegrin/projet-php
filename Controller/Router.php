@@ -39,7 +39,7 @@ class Router
             }
             else
             {
-                require_once('Controllers/ControllerAccueil.php');
+                require_once('Controller/ControllerAccueil.php');
                 $this->_ctrl = new ControllerAccueil($url);
             }
         }

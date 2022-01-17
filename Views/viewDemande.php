@@ -1,8 +1,35 @@
 <!DOCTYPE html>
 <html lang="fr">
-<?php displayHead("Demaned");?>
+<?php
+    require('generation.php');
+    displayHead("Demande");?>
 <body>
-    <?php displayHeader();?>
+<header>
+    <div id="main_div">
+        <h1>e-event.io</h1>
+        <?php if(isset($_SESSION['username'])){ ?>
+            <p>Bienvenue, <?= $_SESSION['username'] ?> !</p>
+            <a href="deco"><input type="submit" value="Déconnexion"></a>
+        <?php }else{ ?>
+            <a href="register"><input type="submit" value="S'inscrire"></a>
+            <a href="login"><input type="submit" value="Se connecter"></a>
+        <?php } ?>
+    </div>
+
+    <nav class="menu">
+        <ol class="menu-item" aria-haspopup="true">
+            <?php if($_SESSION['role'] == ROLE_ADM){ ?>
+                <li class="menu-item"><a id="lienmenu" href="demande">Gérer les demandes</a></li>
+                <li class="menu-item"><a id="lienmenu" href="campagneadmin">Gérer les campagnes</a></li>
+                <li class="menu-item"><a id="lienmenu" href="user">Gérer les utilisateurs</a></li>
+            <?php }elseif($_SESSION['role'] == ROLE_ORGA){ ?>
+                <li class="menu-item"><a id="lienmenu" href="campagne">Mes événements</a></li>
+            <?php }elseif($_SESSION['role'] == ROLE_JURY){ ?>
+                <li class="menu-item"><a id="lienmenu" href="jury">Campagnes en attente</a></li>
+            <?php } ?>
+        </ol>
+    </nav>
+</header>
     <a href="https://www.dashlane.com/fr/features/password-generator" target="_blank">Générateur de mot de passe</a>
 
     <?php

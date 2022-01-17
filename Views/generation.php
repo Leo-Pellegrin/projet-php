@@ -49,7 +49,7 @@ function displayHeader()
         </div>
 
         <nav class="menu">
-            <ul class="menu-item" aria-haspopup="true">
+            <ol class="menu-item" aria-haspopup="true">
                 <?php if($_SESSION[\'role\'] == ROLE_ADM){ ?>
                     <li class="menu-item"><a id="lienmenu" href="demande">Gérer les demandes</a></li>
                     <li class="menu-item"><a id="lienmenu" href="campagneadmin">Gérer les campagnes</a></li>
@@ -59,7 +59,7 @@ function displayHeader()
                         <?php }elseif($_SESSION[\'role\'] == ROLE_JURY){ ?>
                     <li class="menu-item"><a id="lienmenu" href="jury">Campagnes en attente</a></li>
                         <?php } ?>
-            </ul>
+            </ol>
         </nav>
     </header>';
 }

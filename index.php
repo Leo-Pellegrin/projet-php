@@ -8,7 +8,7 @@ define('ROLE_ADM', 1);
 define('ROLE_ORGA', 2);
 define('ROLE_JURY', 3);
 
-require_once('Controllers/Router.php');
+require_once('Controller/Router.php');
 
 $router = new Router();
 $router->routeReq();
