@@ -2,7 +2,7 @@
 <html lang="fr">
 <?php
     require('generation.php');
-    displayHead("Utilisateur");?>
+    displayHead("Connexion");?>
 <body>
 <header>
     <div id="main_div">
@@ -23,48 +23,46 @@
                     <li class="menu-item"><a id="lienmenu" href="demande">Gérer les demandes</a></li>
                     <li class="menu-item"><a id="lienmenu" href="campagneadmin">Gérer les campagnes</a></li>
                     <li class="menu-item"><a id="lienmenu" href="user">Gérer les utilisateurs</a></li>
-                    <li class="menu-item"><a id="lienmenu" href="profil">Mon profil</a></li>
                 <?php }elseif($_SESSION['role'] == ROLE_ORGA){ ?>
                     <li class="menu-item"><a id="lienmenu" href="accueil">Accueil</a></li>
                     <li class="menu-item"><a id="lienmenu" href="campagne">Mes événements</a></li>
-                    <li class="menu-item"><a id="lienmenu" href="profil">Mon profil</a></li>
                 <?php }elseif($_SESSION['role'] == ROLE_JURY){ ?>
                     <li class="menu-item"><a id="lienmenu" href="accueil">Accueil</a></li>
                     <li class="menu-item"><a id="lienmenu" href="campagne">Campagnes en attente</a></li>
-                    <li class="menu-item"><a id="lienmenu" href="profil">Mon profil</a></li>
                 <?php }else{ ?>
                     <li class="menu-item"><a id="lienmenu" href="accueil">Accueil</a></li>
-                    <li class="menu-item"><a id="lienmenu" href="profil">Mon profil</a></li>
                 <?php } ?>
         </ol>
     </nav>
 </header>
+
     <?php
         if($errorMsg != null)
             echo '<h2 id="err_h2">'.$errorMsg.'</h2>';
+
+        if($successMsg != null)
+            echo '<h2 id="succ_h2">'.$successMsg.'</h2>';
     ?>
 
-        <?php if($_SESSION['role'] = 1){ ?>
-            <?php foreach($users as $user): ?>
-                <div class="div_campagne">
-                    <h1><?= $user['username'] ?></h1>
-                    <h2><?= $user['roleDisplay'] ?></h2>
-                </div>
-            <?php endforeach; ?>
-            
-        <?php }else{ ?>
-            <?php foreach($users as $user): ?>
-                <div class="div_campagne">
-                    <h1><?= $user['username'] ?></h1>
-                    <h2><?= $user['roleDisplay'] ?></h2>
-                </div>
-            <?php endforeach; ?>
-        <?php } ?>
+
+    <h2>Changer de mot de passe</h2>
+    <div class="form">
+        <form method="post">
+            <label>Mot de passe actuel</label>
+            <input name="password" placeholder="password" type="password" required> <br>
+            <label>Nouveau mot de passe</label>
+            <input name="password1" placeholder="Nouveau mot de passe" type="password" required> <br>
+            <input name="password2" placeholder="Répéter le nouveau mot de passe" type="password" required> <br>
+            <input type="submit" style="margin-left: 22%;cursor: pointer;" name="login" value="Changer">
+        </form>
+    </div>
+
 
     <footer>
         <a href=""><img src="../images/html5.png" alt="Valid XHTML5"></a>
         <a class="css" href=""><img src="../images/css3.png" alt="Valid CSS3"></a>
         <a href="mailto:projet.phpiutaix@gmail.com">Contactez nous par mail !</a>
-        <p>©e-event.io 2022</p>    </footer>
+        <p>©e-event.io 2022</p>
+    </footer>
 </body>
 </html>

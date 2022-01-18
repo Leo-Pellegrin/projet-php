@@ -35,6 +35,17 @@ class ControllerCampagne
             if($_SESSION['role'] == ROLE_ORGA)
             {
                 $this->getCampagneByOrgaId($_SESSION['user_id']); 
+            }
+            elseif($_SESSION['role'] == ROLE_JURY)
+            {
+                $campagnes = $this->_campagneManager->getCampagnes();
+
+                // Créer et afficher la vue avec les données à ajouter :
+                $this->_view = new View('Campagne');
+                $this->_view->generate(array('campagnes' => $campagnes,
+                                            'jury_can_vote' => $jury_can_vote,
+                                            'errorMsg' => $this->_errorMsg,
+                                            '_SESSION' => $_SESSION));
             }else{
                 // Rediriger l'utilisateur à l'accueil :
                 header("Location: Accueil");
@@ -58,6 +69,28 @@ class ControllerCampagne
             header("Location: Accueil");
             exit();
             return;
+        }
+
+        $jury_can_vote = false;
+
+        if($_SESSION['role'] == ROLE_JURY && $this->_campagneManager->isJury($_SESSION['user_id'], $id)){
+            $jury_can_vote = true;
+        }
+
+        if($jury_can_vote && isset($_POST['valider']) && isset($_GET['event_id']) && isset($_GET['id']))
+        {
+            $event_id = (int) $_GET['event_id'];
+            $camp_id = (int) $_GET['id'];
+
+            $this->_campagneManager->joryVote($_SESSION['user_id'], $event_id, $camp_id);
+        }
+
+        if($jury_can_vote && isset($_POST['final']) && isset($_GET['id']))
+        {
+            $camp_id = (int) $_GET['id'];
+
+            $this->_campagneManager->joryStopCampagne($camp_id);
+            $jury_can_vote = false;
         }
 
         $orga_admin = false;
@@ -152,6 +185,7 @@ class ControllerCampagne
         // Créer et afficher la vue avec les données à ajouter :
         $this->_view = new View('Campagne');
         $this->_view->generate(array('campagne' => $campagne,
+                                    'jury_can_vote' => $jury_can_vote,
                                      'orga_admin' => $orga_admin,
                                      'campValid' => $campValid,
                                      'events' => $events,

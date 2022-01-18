@@ -26,7 +26,7 @@ abstract class Model
         $var = [];
         $req = 'SELECT * FROM '.$table;
         
-        if($campId) $req .= ' WHERE m_campagne = '.$campId;
+        if($campId) $req .= ' WHERE m_campagne = '.$campId.' ORDER BY ptattribues DESC';
 
         $req = $this->getBdd()->prepare($req);
         $req->execute();
@@ -38,6 +38,25 @@ abstract class Model
 
         return $var;
         $req->closeCursor();
+    }
+
+    // Changer son mot de passe :
+    protected function changeUserPass($user_id, $last_pass, $new_pass)
+    {
+        $req = $this->getBdd()->prepare('SELECT * FROM users WHERE id = ?');
+        $req->execute(array($user_id));
+        $req = $req->fetchAll();
+
+        if(sizeof($req) <= 0)
+            return false;
+
+        if(password_verify($last_pass, $req[0]['password']))
+            return false;
+
+        $req = $this->getBdd()->prepare('UPDATE users SET password = ? WHERE id = ?');
+        $req->execute(array($new_pass, $user_id));
+
+        return true;
     }
 
     // Supprimer un événement :
@@ -66,6 +85,54 @@ abstract class Model
         $req = $this->getBdd()->prepare('SELECT * FROM organisateurs WHERE camp_id = ? AND user_id = ?');
         $req->execute(array($camp_id, $user_id));
         return sizeof($req->fetchAll()) > 0;
+    }
+
+    // Vérifier si un événement a été validé par le jury :
+    protected function juryVoteEvent($event_id)
+    {
+        $req = $this->getBdd()->prepare('SELECT * FROM jury_decision WHERE event_id = ?');
+        $req->execute(array($event_id));
+        return sizeof($req->fetchAll()) > 0;
+    }
+
+    // Validation de la campagne par le jury :
+    protected function joryCloseCampagne($camp_id)
+    {
+        $req = $this->getBdd()->prepare('UPDATE campagnes SET juryid = ? WHERE id = ?');
+        $req->execute(array(-2, $camp_id));
+    }
+
+    // Faire voter un jury pour un événement :
+    protected function joryVoteEvent($user_id, $event_id, $camp_id)
+    {
+        $req = $this->getBdd()->prepare('SELECT * from jury_decision WHERE event_id = ?');
+        $req->execute(array($event_id));
+
+        if(sizeof($req->fetchAll()) > 0)
+            return false;
+
+        $req = $this->getBdd()->prepare('INSERT INTO jury_decision(user_id, event_id, camp_id) VALUES(?, ?, ?)');
+        $req->execute(array($user_id, $event_id, $camp_id));
+    }
+
+    // vérifier si l'utilisareur est le jury d'une campagne :
+    protected function userIsJuryCampagne($user_id, $camp_id)
+    {
+        $req = $this->getBdd()->prepare('SELECT * FROM campagnes WHERE id = ? AND (juryid = ? OR juryid = -1)');
+        $req->execute(array($camp_id, $user_id));
+        $req = $req->fetchAll();
+
+        if(sizeof($req) <= 0){
+            return false;
+        }elseif($req[0]['juryid'] == -1){
+            $req1 = $this->getBdd()->prepare('UPDATE campagnes SET juryid = ? WHERE id = ?');
+            $req1->execute(array($user_id, $camp_id));
+            return true;
+        }else{
+            return true;
+        }
+        
+        return false;
     }
 
     // Donner les campagnes d'un organisateur :
@@ -180,8 +247,8 @@ abstract class Model
     {
         try {
             // Ajouter la campagne :
-            $req = $this->getBdd()->prepare('INSERT INTO campagnes(nom, datedeb, datefin, nbptinitial, nbptminimum) VALUES(?, ?, ?, ?, ?)');
-            $req->execute(array($name, $deb, $fin, $ptinit, $ptmin));
+            $req = $this->getBdd()->prepare('INSERT INTO campagnes(nom, datedeb, datefin, nbptinitial, nbptminimum, juryid) VALUES(?, ?, ?, ?, ?, ?)');
+            $req->execute(array($name, $deb, $fin, $ptinit, $ptmin, -1));
         } catch (\Throwable $th) {
             return 0;
         }

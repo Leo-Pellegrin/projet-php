@@ -15,20 +15,6 @@
             <a href="login"><input type="submit" value="Se connecter"></a>
         <?php } ?>
     </div>
-
-    <nav class="menu">
-        <ol class="menu-item" aria-haspopup="true">
-            <?php if($_SESSION['role'] == ROLE_ADM){ ?>
-                <li class="menu-item"><a id="lienmenu" href="demande">Gérer les demandes</a></li>
-                <li class="menu-item"><a id="lienmenu" href="campagneadmin">Gérer les campagnes</a></li>
-                <li class="menu-item"><a id="lienmenu" href="user">Gérer les utilisateurs</a></li>
-            <?php }elseif($_SESSION['role'] == ROLE_ORGA){ ?>
-                <li class="menu-item"><a id="lienmenu" href="campagne">Mes événements</a></li>
-            <?php }elseif($_SESSION['role'] == ROLE_JURY){ ?>
-                <li class="menu-item"><a id="lienmenu" href="jury">Campagnes en attente</a></li>
-            <?php } ?>
-        </ol>
-    </nav>
 </header>
 
     <?php
@@ -45,11 +31,9 @@
             <label for="nom">Nom</label>
             <input name="nom" placeholder="Nom" type="text" required>
             <label for="nom">Prénom</label>
-            <input name="nom" placeholder="Prénom" type="text" required>
+            <input name="prenom" placeholder="Prénom" type="text" required>
             <label for="email" >E-mail</label>
             <input name="email" placeholder="E-mail" type="text" required> <br>
-            <label for="tel" >Téléphone</label>
-            <input name="tel" placeholder="N° de téléphone" type="text" required> <br>
             <label name="role" >Rôle</label>
             <select name="role" required>
                 <option value="<?= ROLE_ETD ?>">Etudiant</option>
