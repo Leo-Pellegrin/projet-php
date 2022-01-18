@@ -7,15 +7,13 @@ displayHead("Jury"); ?>
         <header>
             <div id="main_div">
                 <h1>e-event.io</h1>
-                <div id="but_a">
-                    <?php if(isset($_SESSION['username'])){ ?>
-                        <p>Bienvenue, <?= $_SESSION['username'] ?> !</p>
-                        <a href="deco">Déconnexion</a>
-                    <?php }else{ ?>
-                        <a href="register">S'inscrire</a>
-                        <a href="login">Se connecter</a>
-                    <?php } ?>
-                </div>
+                <?php if(isset($_SESSION['username'])){ ?>
+                    <p>Bienvenue, <?= $_SESSION['username'] ?> !</p>
+                    <a href="deco"><input type="submit" value="Déconnexion"></a>
+                <?php }else{ ?>
+                    <a href="register"><input type="submit" value="S'inscrire"></a>
+                    <a href="login"><input type="submit" value="Se connecter"></a>
+                <?php } ?>
             </div>
 
             <nav class="menu">
