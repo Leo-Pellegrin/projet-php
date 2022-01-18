@@ -34,7 +34,6 @@
                             <li class="menu-item"><a id="lienmenu" href="profil">Mon profil</a></li>
                         <?php }else{ ?>
                             <li class="menu-item"><a id="lienmenu" href="accueil">Accueil</a></li>
-                            <li class="menu-item"><a id="lienmenu" href="profil">Mon profil</a></li>
                         <?php } ?>
                 </ol>
             </nav>

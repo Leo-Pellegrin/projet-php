@@ -29,9 +29,7 @@
                         <?php }elseif($_SESSION['role'] == ROLE_JURY){ ?>
                             <li class="menu-item"><a id="lienmenu" href="campagne">Campagnes en attente</a></li>
                             <li class="menu-item"><a id="lienmenu" href="profil">Mon profil</a></li>
-                        <?php }else{ ?>
-                            <li class="menu-item"><a id="lienmenu" href="profil">Mon profil</a></li>
-                        <?php } ?>
+                        <?php }?>
                     </ol>
                 </nav>
             </header>

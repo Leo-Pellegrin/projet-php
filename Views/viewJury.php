@@ -22,10 +22,13 @@ displayHead("Jury"); ?>
                         <li class="menu-item"><a id="lienmenu" href="demande">Gérer les demandes</a></li>
                         <li class="menu-item"><a id="lienmenu" href="campagneadmin">Gérer les campagnes</a></li>
                         <li class="menu-item"><a id="lienmenu" href="user">Liste des utilisateurs</a></li>
+                        <li class="menu-item"><a id="lienmenu" href="profil">Mon profil</a></li>
                     <?php }elseif($_SESSION['role'] == ROLE_ORGA){ ?>
                         <li class="menu-item"><a id="lienmenu" href="campagne">Mes événements</a></li>
+                        <li class="menu-item"><a id="lienmenu" href="profil">Mon profil</a></li>
                     <?php }elseif($_SESSION['role'] == ROLE_JURY){ ?>
                         <li class="menu-item"><a id="lienmenu" href="jury">Campagnes en attente</a></li>
+                        <li class="menu-item"><a id="lienmenu" href="profil">Mon profil</a></li>
                     <?php } ?>
                 </ol>
             </nav>
