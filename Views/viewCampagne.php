@@ -123,7 +123,7 @@
         <?php } ?>
  
         <?php if($campagne->getTempsRestant() < 0 && $_SESSION['role'] == ROLE_JURY && $jury_can_vote){ ?>
-            <form method="post" action="campagne&id=<?= $campagne->getId(); ?>">
+            <form style="margin-left: 44%" method="post" action="campagne&id=<?= $campagne->getId(); ?>">
                 <input type="submit" name="final" value="Finaliser cette campagne">
             </form>
         <?php } ?>
