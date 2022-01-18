@@ -517,6 +517,10 @@ hr{
     transition: box-shadow 1s;
 }
 
+#but_a{
+
+}
+
 @media (max-width: 500px)  and (max-height: 900px){
     #main_div h1{
         margin-left: 45%;
