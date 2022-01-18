@@ -3,6 +3,7 @@
 <?php
     require('generation.php');
     displayHead("Demande");?>
+
 <body>
 <header>
     <div id="main_div">
@@ -30,37 +31,47 @@
         </ol>
     </nav>
 </header>
-    <a href="https://www.dashlane.com/fr/features/password-generator" target="_blank">Générateur de mot de passe</a>
-
+    <div class="demandedescription">
     <?php
         if($errorMsg != null)
             echo '<h2 id="err_h2">'.$errorMsg.'</h2>';
     ?>
 
         <?php foreach($demandes as $demande): ?>
-            <div class="listedemande">
-                <button><?=$demande->getId(); $demande->getNom();?></button>
-            </div>
 
-            <div class="demandedescription">
-                <div class="demandeinformation">
-                    <h1>Email : <?= $demande->getEmail(); ?></h1>
+
+                    <h2>Email : <?= $demande->getEmail(); ?></h2>
                     <h2>Nom : <?= $demande->getNom(); ?></h2>
                     <h2>Prénom : <?= $demande->getPrenom(); ?></h2>
                     <h2>Rôle : <?= $demande->afficherRole(); ?></h2>
                     <h2>Inscrit depuis : <?= $demande->afficherTemp(); ?></h2>
-                </div>
-                <form action="demande&id=<?= $demande->getId(); ?>" method="post">
-                    <input type="text" name="username" placeholder="Username" required><br/>
-                    <input type="password" name="password" placeholder="Mot de passe" required><br/>
-                    <input type="submit" style="margin-left: 36.5%;cursor: pointer;" name="activer" value="Activer" required>
+
+                <form class="form1"action="demande&id=<?= $demande->getId(); ?>" method="post">
+                    <label>
+                        Username
+                        <input type="text" name="username" placeholder="Username" required><br/>
+                    </label>
+                    <label>
+                        Password
+                        <input type="password" name="password" placeholder="Mot de passe" required><br/>
+                    </label>
+
+                    <a class="rdmpassword" href="https://www.dashlane.com/fr/features/password-generator" target="_blank">Générateur de mot de passe</a><br>
+
+                    <input type="submit" name="activer" value="Activer" required>
                 </form>
 
-                <form action="demande&id=<?= $demande->getId(); ?>" method="post">
-                    <input type="submit" style="margin-left: 36.5%;cursor: pointer;" name="supprimer" value="Supprimer" required>
+                <form class="form2" action="demande&id=<?= $demande->getId(); ?>" method="post">
+                    <input type="submit" name="supprimer" value="Supprimer" required>
                 </form>
-            </div>
-        <?php endforeach; ?>
+
+        <?php endforeach;
+        if (empty($demandes)){?>
+            <h1>
+                Il n'y a aucune demande pour l'instant, revenez plus tard !
+            </h1>
+        <?php } ?>
+        </div>
 
     <footer>
         <a href=""><img src="../images/html5.png" alt="Valid XHTML5"></a>

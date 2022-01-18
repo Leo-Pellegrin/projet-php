@@ -50,13 +50,6 @@
             <input name="email" placeholder="E-mail" type="text" required> <br>
             <label for="tel" >Téléphone</label>
             <input name="tel" placeholder="N° de téléphone" type="text" required> <br>
-            <!--<label for="pays" >Pays</label>
-            <select name="pays">
-                <option value="France">France</option>
-                <option value="Allemagne">Allemagne</option>
-                <option value="Italie">Italie</option>
-                <option value="Royaume-Uni">Royaume-Uni</option>
-            </select> <br>-->
             <label name="role" >Rôle</label>
             <select name="role" required>
                 <option value="<?= ROLE_ETD ?>">Etudiant</option>

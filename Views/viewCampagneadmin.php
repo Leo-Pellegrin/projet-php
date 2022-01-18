@@ -35,33 +35,33 @@
         if($errorMsg != null)
             echo '<h2 id="err_h2">'.$errorMsg.'</h2>';
     ?>
+        <div class="formcampagne">
+            <form method="post" >
+                <?php
+                    $now = new DateTime(date('Y-m-d H:i:s'));
+                    $now = $now->format('Y-m-d H:i:s');
+                ?>
 
-        <form method="post" style="margin-bottom:50px">
-            <?php
-                $now = new DateTime(date('Y-m-d H:i:s'));
-                $now = $now->format('Y-m-d H:i:s');
-            ?>
-
-            <h1>Ajouter une campagne</h1>
-            <hr>
-
-            <input type="text" name="name" placeholder="Nom de la campagne" required><br/>
-
-            <label for="deb">Date de début :</label><br/>
-            <input type="text" name="deb" value="<?= $now ?>" placeholder="aaaa-mm-jj hh:mm:ss" required><br/>
-
-            <label for="fin">Date de fin :</label><br/>
-            <input type="text" name="fin" value="<?= $now ?>" placeholder="aaaa-mm-jj hh:mm:ss" required><br/>
-
-            <label for="ptinit">Points initiaux :</label><br/>
-            <input type="number" name="ptinit" min="1" max="1000" required><br/>
-
-            <label for="ptmin">Points minimums :</label><br/>
-            <input type="number" name="ptmin" min="1" max="1000" required><br/>
-
-            <input type="submit" style="margin-left: 36.5%;cursor: pointer;" name="ajouter" value="créer la campagne">
-        </form>
-
+                <h1>Ajouter une campagne</h1>
+                <hr>
+                <label for="nomcamp">Nom de la campagne: <br/>
+                <input type="text" name="name" placeholder="Nom de la campagne" required>
+                </label>
+                <label for="deb">Date de début :<br/>
+                <input type="text" name="deb" value="<?= $now ?>" placeholder="aaaa-mm-jj hh:mm:ss" required>
+                </label>
+                <label for="fin">Date de fin :<br/>
+                <input type="text" name="fin" value="<?= $now ?>" placeholder="aaaa-mm-jj hh:mm:ss" required>
+                </label>
+                <label for="ptinit">Points initiaux :<br/>
+                <input type="number" name="ptinit" min="1" max="1000" required>
+                </label>
+                <label for="ptmin">Points minimums :<br/>
+                <input type="number" name="ptmin" min="1" max="1000" required>
+                </label>
+                <input type="submit" name="ajouter" value="Créer la campagne">
+            </form>
+        </div>
         <hr/>
 
         <?php foreach($campagnes as $campagne): ?>
@@ -70,15 +70,15 @@
                 <h2>Organisateurs :</h2>
 
                 <?php foreach($campagne->getOrganisateurs() as $orga): ?>
-                    <form method="post" class="grid2" action="campagneadmin&orgaId=<?= $orga['id']; ?>">
+                    <form method="post" class="grid1" action="campagneadmin&orgaId=<?= $orga['id']; ?>">
                         <p><?= $orga['username'] ?></p>
-                        <input type="submit" style="margin-left: 36.5%;cursor: pointer;" name="del" value="retirer">
+                        <input type="submit" name="del" value="retirer">
                     </form>
                 <?php endforeach; ?>
 
-                <form method="post" action="campagneadmin&campId=<?= $campagne->getId(); ?>" style="margin-top:20px;">
+                <form method="post" class="grid2" action="campagneadmin&campId=<?= $campagne->getId(); ?>">
                     <input type="text" name="username" placeholder="nom d'utilisateur d'un organisateur" required>
-                    <input type="submit" style="margin-left: 36.5%;cursor: pointer;" name="add" value="Ajouter">
+                    <input type="submit" name="add" value="Ajouter">
                 </form>
             </div>
         <?php endforeach; ?>
