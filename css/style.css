@@ -1,13 +1,9 @@
 html, body{
-    width: 100%;
-    margin: 0;
     padding: 0;
     font-family: "Orbitron", serif;
     background-color: #d9d9d9;
-    height: 100%;
+    margin: 0 0 5%;
 }
-
-
 
 #main_div{
     display: grid;
@@ -70,12 +66,13 @@ h3{
 }
 
 footer{
+    position: fixed;
     background-color: #353535;
     color: white;
     width: 100%;
     text-align: center;
-    margin-top: 40px;
     bottom: 0;
+    margin-top: 5%;
 }
 
 footer p{
@@ -100,8 +97,11 @@ footer.css{
 }
 
 header{
-    margin-bottom: 3%;
+    margin-bottom: 8%;
     background-color: #353535;
+    top : 0;
+    margin-top: -0.5em;
+    width: 100%
 
 }
 
@@ -262,6 +262,7 @@ form input[type="radio"]{
     border-radius: 5px;
     box-shadow: 2px 2px 5px #353535;
     transition: box-shadow 1s;
+    padding: 5%;
 }
 
 /* FORM:HOVER */
@@ -499,4 +500,73 @@ form input[type="radio"]{
 hr{
     margin-top: 3%;
     margin-bottom: 3%;
+}
+
+.formevenement{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.formevenement input[type='text'], input[type='submit']{
+    margin-top: 1em;
+    margin-bottom: 1em;
+    border-radius: 15px;
+    padding: 1em;
+    box-shadow: 2px 2px 5px #353535;
+    transition: box-shadow 1s;
+}
+
+@media (max-width: 500px)  and (max-height: 900px){
+    #main_div h1{
+        margin-left: 45%;
+    }
+
+    #main_div a{
+        margin-top: 150%;
+        margin-left: -450%;
+    }
+    #main_div input[value='Se connecter']{
+        margin-left: 30%;
+    }
+
+    #main_div input[value='S\'inscrire']{
+        margin-left: -30%;
+    }
+
+    .div_campagne{
+        width: 80%;
+    }
+
+    footer{
+        height: 10%;
+        margin-bottom: -10%;
+        min-height: 17%;
+    }
+
+    footer img, a{
+        margin-top: 10%;
+    }
+
+    .menu{
+        margin-left: 28%;
+    }
+
+    #main_div input[value='Déconnexion']{
+        margin-left: -11%;
+    }
+
+    #main_div p{
+        margin-top: 60%;
+    }
+
+    .form2 input[type='submit']{
+        margin-left: 31%;
+        margin-top: -10%
+    }
+
+    body{
+        height: 100%;
+        margin-bottom: 25%;
+    }
 }

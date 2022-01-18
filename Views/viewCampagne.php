@@ -66,12 +66,19 @@
                 <?php endforeach; ?>  
             
                 <?php if($orga_admin){ ?>
-                    <form method="post" action="campagne&event_id=<?= $event->getId(); ?>&id=<?= $campagne->getId(); ?>">
-                        <input type="text" name="description" placeholder="Description du contenu suplémentaire" required>
-                        <input type="number" name="points" min="<?= $lastPointsCont + 1; ?>" required>
-                        <input type="submit" name="addcontenu" value="Ajouter le contenu suplémentaire">
-                    </form>
-
+                    <div class="formevenement">
+                        <form method="post" action="campagne&event_id=<?= $event->getId(); ?>&id=<?= $campagne->getId(); ?>">
+                            <label>
+                                Description du contenu suplémentaire <br/>
+                                <input type="text" name="description" placeholder="Description du contenu suplémentaire" required><br/>
+                            </label>
+                            <label>
+                                Nombre de points <br/>
+                                <input type="number" name="points" min="<?= $lastPointsCont + 1; ?>" required><br/>
+                            </label>
+                            <input type="submit" name="addcontenu" value="Ajouter le contenu suplémentaire">
+                        </form>
+                    </div>
                     <?php if($campValid){ ?>
                         <form method="post" action="campagne&event_id=<?= $event->getId(); ?>&id=<?= $campagne->getId(); ?>">
                             <input type="submit" name="supEvent" value="Supprimer l'événement">
@@ -86,11 +93,19 @@
         <?php endforeach; ?>
 
         <?php if($orga_admin && $campValid){ ?>
+        <div class="formevenement">
             <form method="post" action="campagne&id=<?= $campagne->getId(); ?>">
-                <input type="text" name="nom" placeholder="Nom de l'événement" required>
-                <input type="text" name="desc" placeholder="Description de l'événement" required>
+                <label>
+                    Nom de l'événement<br/>
+                    <input type="text" name="nom" placeholder="Nom de l'événement" required><br/>
+                </label>
+                <label>
+                    Description de l'événement<br/>
+                    <input type="text" name="desc" placeholder="Description de l'événement" required><br/>
+                </label>
                 <input type="submit" name="addEvent" value="Ajouter">
             </form>
+        </div>
         <?php } ?>
 
     <?php }else{ ?> 
