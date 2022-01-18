@@ -10,6 +10,7 @@ class Campagne
     private $_nbptminimum;
     private $_eventManager;
     private $_eventlist;
+    private $_juryid;
 
     public function __construct(array $data)
     {
@@ -64,6 +65,11 @@ class Campagne
             $this->_nbptminimum = $nb;
     }
 
+    public function setJuryid($nb){
+        $nb = (int) $nb;
+        $this->_juryid = $nb;
+    }
+
     // Getters :
     public function getId(){
         return $this->_id;
@@ -92,6 +98,11 @@ class Campagne
     public function getEvents()
     {
         return $this->_eventlist;
+    }
+
+    public function getJuryid()
+    {
+        return $this->_juryid;
     }
 
     public function getTempsRestant(){
@@ -145,7 +156,13 @@ class Campagne
     {
         $restTime = $this->getTempsRestant();
 
-        if($restTime <= 0) return 'Cette campagne est terminée';
+        if($restTime <= 0){
+            if($this->getJuryid() != -2){
+                return 'En attente de jury';
+            }
+
+            return 'Cette campagne est terminée';
+        }
         else return 'Cette campagne se termine dans : '.$this->timeToDisplay($restTime);
     }
 }

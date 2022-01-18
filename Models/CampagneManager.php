@@ -61,4 +61,19 @@ class CampagneManager extends Model
     {
         return $this->delContenuSup($cont_id);
     }
+
+    public function isJury($user_id, $camp_id)
+    {
+        return $this->userIsJuryCampagne($user_id, $camp_id);
+    }
+
+    public function joryVote($user_id, $event_id, $camp_id)
+    {
+        return $this->joryVoteEvent($user_id, $event_id, $camp_id);
+    }
+
+    public function joryStopCampagne($camp_id)
+    {
+        return $this->joryCloseCampagne($camp_id);
+    }
 }
