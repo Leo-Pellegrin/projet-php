@@ -518,7 +518,11 @@ hr{
 }
 
 #but_a{
-
+    margin-top: 5%;
+    box-shadow: 2px 2px 5px #353535;
+    border-radius: 15px;
+    padding: 1em;
+    margin-right: 4%;
 }
 
 @media (max-width: 500px)  and (max-height: 900px){
